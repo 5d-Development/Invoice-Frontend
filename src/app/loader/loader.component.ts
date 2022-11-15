@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { interval, Subscription } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-loader',
@@ -9,10 +10,11 @@ import { interval, Subscription } from 'rxjs';
 })
 export class LoaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
   val: number = 0;
   curSec: number = 0;
 
+  // Progress Bar
   startTimer(seconds: number) {
     const time = seconds;
     const timer$ = interval(1000);
@@ -24,12 +26,21 @@ export class LoaderComponent implements OnInit {
       if (this.curSec === seconds) {
         sub.unsubscribe();
       }
+
+      if (this.val == 100) {
+        setTimeout(() => {
+          this.router.navigate(['/login'], { relativeTo: this.activatedRoute });
+        }, 500);
+
+        console.log('click');
+      }
     });
   }
 
 
   ngOnInit(): void {
-    this.startTimer(3)
+    this.startTimer(2);
+
   }
 
 
