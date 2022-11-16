@@ -36,15 +36,10 @@ export class LoaderComponent implements OnInit {
       }
     });
   }
-
-
   ngOnInit(): void {
     this.startTimer(2);
 
   }
-
-
-
 }
 
 

@@ -21,8 +21,6 @@
     src: url(./assets/fonts/BellotaText-Light.ttf);
 }
 
-
-
 html,
 body {
     height: 100%;
@@ -43,5 +41,10 @@ body {
     label {
         font-family: BellotaText-Regular, sans-serif !important;
     }
+}
 
+app-side-bar {
+    position: absolute;
+    top: 0;
+    height: 100%;
 }

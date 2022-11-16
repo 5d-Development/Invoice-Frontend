@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SideBarComponent } from '../header/side-bar/side-bar.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  is_open: boolean = false;
+  constructor(private sidebar: SideBarComponent) { }
 
   ngOnInit(): void {
+    this.is_open = this.sidebar.is_open;
   }
 
 }

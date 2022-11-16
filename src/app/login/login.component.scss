@@ -41,7 +41,7 @@
         width: 70%;
         padding: 70px 50px;
         border: solid 1px $border-grey;
-        border-radius: $border-radius;
+        border-radius: $button-border-radius;
 
         @include media-breakpoint-down(md) {
             width: 100%;
@@ -71,7 +71,7 @@
             }
 
             input {
-                border-radius: $border-radius;
+                border-radius: $button-border-radius;
                 padding-left: 1rem;
 
                 &:active,
@@ -101,7 +101,7 @@
                 color: #fff;
                 background-color: $main-purple;
                 border-color: $main-purple;
-                border-radius: $border-radius;
+                border-radius: $button-border-radius;
                 width: 50%;
                 margin: 1.5rem 0;
 

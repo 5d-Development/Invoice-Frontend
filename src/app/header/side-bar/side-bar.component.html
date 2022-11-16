@@ -1,0 +1,19 @@
+<mat-drawer-container id="sidebar-container" autosize>
+    <mat-drawer id="sidebar" #drawer mode="side">
+        <div class="img-container">
+            <img src="../../../assets/img/sidebar/5d-logo.png" alt="">
+        </div>
+        <div class="p-3">
+            <a routerLink="/dashboard" class="btn btn-primary my-1">Dashboard</a>
+            <a routerLink="/invoices" class="btn btn-primary my-1">Invoices</a>
+        </div>
+
+    </mat-drawer>
+
+    <div>
+        <button type="button" mat-button (click)="drawer.toggle();" *ngIf="!this.is_open">
+            Toggle sidenav
+        </button>
+    </div>
+
+</mat-drawer-container>
