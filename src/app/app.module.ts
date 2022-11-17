@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoaderComponent } from './loader/loader.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -18,20 +17,29 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChangePasswordComponent } from './login/change-password/change-password.component';
 import { SetNewPasswordComponent } from './login/set-new-password/set-new-password.component';
-import { SideBarComponent } from './header/side-bar/side-bar.component';
+import { SideBarComponent } from './side-bar/side-bar.component';
 import { InvoicesComponent } from './invoices/invoices.component';
+import { ExpensesComponent } from './expenses/expenses.component';
+import { ClientsComponent } from './clients/clients.component';
+import { TeamComponent } from './team/team.component';
+import { SettingsComponent } from './settings/settings.component';
+import { ActivityLogComponent } from './activity-log/activity-log.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     LoaderComponent,
     LoginComponent,
     DashboardComponent,
     ChangePasswordComponent,
     SetNewPasswordComponent,
     SideBarComponent,
-    InvoicesComponent
+    InvoicesComponent,
+    ExpensesComponent,
+    ClientsComponent,
+    TeamComponent,
+    SettingsComponent,
+    ActivityLogComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +54,15 @@ import { InvoicesComponent } from './invoices/invoices.component';
     ReactiveFormsModule,
     SweetAlert2Module.forRoot(),
   ],
-  providers: [SideBarComponent],
+  providers: [
+    DashboardComponent,
+    InvoicesComponent,
+    ExpensesComponent,
+    ClientsComponent,
+    TeamComponent,
+    SettingsComponent,
+    ActivityLogComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

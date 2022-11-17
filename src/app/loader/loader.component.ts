@@ -31,8 +31,6 @@ export class LoaderComponent implements OnInit {
         setTimeout(() => {
           this.router.navigate(['/login'], { relativeTo: this.activatedRoute });
         }, 500);
-
-        console.log('click');
       }
     });
   }

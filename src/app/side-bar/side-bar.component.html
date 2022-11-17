@@ -1,0 +1,91 @@
+<mat-drawer-container id="sidebar-container" autosize>
+
+    <div id="header">
+        <div class="container-fluid d-flex justify-content-end">
+
+            <!-- Notification Dropdown -->
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false" (click)="drawer.close()">
+                    <img src="../../assets/img/bell-grey.svg" alt="">
+                    <div class="new-item" *ngIf="new_item"></div>
+                </button>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div>
+
+            <!-- User Dropdown -->
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false" (click)="drawer.close()">
+                    <img src="../../assets/img/user-solid.svg" alt="">
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" routerLink="/change-password">Change Password</a></li>
+                    <li><a class="dropdown-item" [swal]="{
+                        title: 'Log Out?', confirmButtonText: 'Yes', confirmButtonColor: 'red' , showCancelButton: true
+                       }" (confirm)="logout()">Log Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <mat-drawer id="sidebar" #drawer mode="push">
+        <div class="img-container">
+            <img src="../../../assets/img/sidebar/5d-logo.png" alt="logo">
+        </div>
+
+        <div class="items-container">
+            <div class="p-3 d-flex flex-column justify-content-center">
+                <a routerLink="/dashboard" class="btn btn-primary my-1" [style]="color1" (click)="drawer.close()">
+                    <img [src]="dashboard_icon" alt="">
+                    Dashboard
+                </a>
+                <a routerLink="/invoices" class="btn btn-primary my-1" [style]="color2" (click)="drawer.close()">
+                    <img [src]="invoices_icon" alt="">
+                    Invoices
+                </a>
+                <a routerLink="/expenses" class="btn btn-primary my-1" [style]="color3" (click)="drawer.close()">
+                    <img [src]="expenses_icon" alt="" style="width: 10px;">
+                    Expenses
+                </a>
+                <a routerLink="/clients" class="btn btn-primary my-1" [style]="color4" (click)="drawer.close()">
+                    <img [src]="clients_icon" alt="">
+                    Clients
+                </a>
+                <a routerLink="/team" class="btn btn-primary my-1" [style]="color5" (click)="drawer.close()">
+                    <img [src]="team_icon" alt="" style="width: 20px;">
+                    Team
+                </a>
+            </div>
+
+            <div class="p-3 d-flex flex-column justify-content-center">
+                <a routerLink="/settings" class="btn btn-primary my-1" [style]="color6" (click)="drawer.close()">
+                    <img [src]="settings_icon" alt="">
+                    Settings
+                </a>
+                <a routerLink="/activity-log" class="btn btn-primary my-1" [style]="color7" (click)="drawer.close()">
+                    <img [src]="log_icon" alt="">
+                    Activity Log
+                </a>
+            </div>
+        </div>
+    </mat-drawer>
+
+    <button id="sidebar-btn" type="button" class="btn d-flex justify-content-between align-items-center" mat-button
+        (click)="drawer.toggle();">
+        <img id="sidebar-arrow" src="../../../assets/img/chevron-left-solid.svg">
+        <img [src]="title_icon_source" alt="icon" [style]="width">
+        {{ title }}
+    </button>
+
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+
+</mat-drawer-container>
