@@ -24,6 +24,8 @@ import { ClientsComponent } from './clients/clients.component';
 import { TeamComponent } from './team/team.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ActivityLogComponent } from './activity-log/activity-log.component';
+import { ClientsSummaryComponent } from './clients/clients-summary/clients-summary.component';
+import { TeamSummaryComponent } from './team/team-summary/team-summary.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { ActivityLogComponent } from './activity-log/activity-log.component';
     ClientsComponent,
     TeamComponent,
     SettingsComponent,
-    ActivityLogComponent
+    ActivityLogComponent,
+    ClientsSummaryComponent,
+    TeamSummaryComponent
   ],
   imports: [
     BrowserModule,
