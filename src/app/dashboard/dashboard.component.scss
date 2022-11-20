@@ -5,12 +5,6 @@
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
 
-    h1 {
-        text-transform: capitalize;
-        color: $main-purple;
-        font-weight: 600;
-    }
-
     #recent-activity-section,
     #clients-section,
     #team-section {
@@ -25,20 +19,6 @@
 
         @include media-breakpoint-down (md) {
             border-top: none;
-        }
-
-        
-    }
-
-    #recent-activity-section {
-        .date {
-            color: $main-purple;
-            font-size: 1rem;
-        }
-
-        .action {
-            color: $text-grey;
-            font-weight: 500;
         }
     }
 }
