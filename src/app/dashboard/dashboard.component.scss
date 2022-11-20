@@ -1,0 +1,52 @@
+@import '../../assets/css/variables';
+@import '../../assets/css/media-query';
+
+#dashboard {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+
+    h1 {
+        text-transform: capitalize;
+        color: $main-purple;
+        font-weight: 600;
+    }
+
+    #recent-activity-section,
+    #clients-section,
+    #team-section {
+        border: solid 2px $border-grey;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    #clients-section,
+    #team-section {
+        border-left: none;
+
+        @include media-breakpoint-down (md) {
+            border-top: none;
+        }
+
+        .label {
+            color: $main-purple;
+            font-size: 1rem;
+        }
+
+        .stat {
+            color: $text-grey;
+            font-weight: 500;
+        }
+    }
+
+    #recent-activity-section {
+        .date {
+            color: $main-purple;
+            font-size: 1rem;
+        }
+
+        .action {
+            color: $text-grey;
+            font-weight: 500;
+        }
+    }
+}
