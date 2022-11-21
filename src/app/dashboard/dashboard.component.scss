@@ -9,13 +9,14 @@
     #clients-section,
     #team-section {
         border: solid 2px $border-grey;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+        padding: 1rem 1.5rem;
     }
 
     #clients-section,
-    #team-section {
+    #team-section,
+    #expenses-section {
         border-left: none;
+        padding: 1rem 1.5rem;
 
         @include media-breakpoint-down (md) {
             border-top: none;
@@ -27,7 +28,12 @@
 
         #invoices-section {
             border-top: none;
-            border-right: solid 2px $border-grey
+            border-right: solid 2px $border-grey;
+            padding: 1rem 1.5rem;
+        }
+
+        #currency-section {
+            padding: 1rem 1.5rem;
         }
     }
 }

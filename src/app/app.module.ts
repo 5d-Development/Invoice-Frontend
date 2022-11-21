@@ -4,15 +4,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoaderComponent } from './loader/loader.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatSelectModule } from '@angular/material/select';
 
+import { LoaderComponent } from './loader/loader.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChangePasswordComponent } from './login/change-password/change-password.component';
@@ -29,6 +30,7 @@ import { TeamSummaryComponent } from './team/team-summary/team-summary.component
 import { LogSummaryComponent } from './activity-log/log-summary/log-summary.component';
 import { InvoicesSummaryComponent } from './invoices/invoices-summary/invoices-summary.component';
 import { CurrencySummaryComponent } from './invoices/currency-summary/currency-summary.component';
+import { ExpensesSummaryComponent } from './expenses/expenses-summary/expenses-summary.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { CurrencySummaryComponent } from './invoices/currency-summary/currency-s
     TeamSummaryComponent,
     LogSummaryComponent,
     InvoicesSummaryComponent,
-    CurrencySummaryComponent
+    CurrencySummaryComponent,
+    ExpensesSummaryComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +66,7 @@ import { CurrencySummaryComponent } from './invoices/currency-summary/currency-s
 
     ReactiveFormsModule,
     SweetAlert2Module.forRoot(),
+    GoogleChartsModule,
   ],
   providers: [
     DashboardComponent,

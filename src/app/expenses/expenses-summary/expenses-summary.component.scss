@@ -1,11 +1,9 @@
 @import '../../../assets/css/variables';
 @import '../../../assets/css/media-query';
 
-#invoices-summary {
-    display: flex;
-
+#expenses-summary {
     #selections {
-        width: 50%;
+        width: 100%;
         display: flex;
         align-items: baseline;
 
@@ -67,27 +65,35 @@
                 }
             }
         }
-    }
 
-    .invoices-prices {
-        width: 100%;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+        #legend {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: solid 1px $border-grey;
+            border-radius: $dropdown-border-radius;
+            padding: 0.3rem 2rem;
 
-        label {
-            color: $text-grey;
-            font-size: 1.2rem;
-            font-weight: 500;
-        }
+            #color1 {
+                width: 25px;
+                height: 5px;
+                margin: auto 1rem auto auto ;
+                background-color: $chart1;
+            }
 
-        h4 {
-            color: $text-black;
-            font-size: 1.5rem;
-            font-weight: 600;
-
-            @include media-breakpoint-down (lg) {
-                font-size: 1.3rem;
+            #color2 {
+                width: 25px;
+                height: 5px;
+                margin: auto 1rem auto auto ;
+                background-color: $chart2;
             }
         }
+    }
+
+    google-chart {
+        width: 100%;
+        height: 280px;
+        margin-top: 0.5rem;
     }
 }
