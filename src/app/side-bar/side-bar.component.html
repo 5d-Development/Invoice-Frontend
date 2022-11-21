@@ -1,11 +1,12 @@
 <mat-drawer-container id="sidebar-container" autosize>
-    <app-top-header (click)="drawer.toggle()"></app-top-header>
+    <app-top-header (click)="toggle()"></app-top-header>
     <!-- Sidebar -->
     <mat-drawer 
-        [ngStyle]="closeAsideStatus ? {'width':'100px'}:{'width':'200px'} " 
+        [ngStyle]="closeAsideStatus ? {'width':'200px'}:{'width':'100px'} " 
         id="sidebar"
         #drawer 
-        mode="side">
+        mode="side"
+        opened>
         <div class="img-container">
             <img src="../../../assets/img/sidebar/5d-logo.png" alt="logo">
         </div>
@@ -23,9 +24,8 @@
                         stroke="#DFDFDF" fill="#DFDFDF"
                         routerLinkActive="active-svg" />
                     </svg>
-                    <!-- <img [src]="dashboard_icon" alt=""> -->
                     <span
-                        [ngStyle]="closeAsideStatus ? {'display':'none'}:{'display':'flex'} " 
+                        [ngStyle]="!closeAsideStatus ? {'display':'none'}:{'display':'flex'} " 
                         > Dashboard
                     </span>
                    
@@ -44,7 +44,7 @@
                     </svg>
                     <!-- <img [src]="invoices_icon" alt=""> -->
                     <span
-                        [ngStyle]="closeAsideStatus ? {'display':'none'}:{'display':'flex'} " 
+                        [ngStyle]="!closeAsideStatus ? {'display':'none'}:{'display':'flex'} " 
                         > Invoices
                     </span>
                     
@@ -63,7 +63,7 @@
                     </svg>
                     <!-- <img [src]="expenses_icon" alt="" style="width: 10px;"> -->
                     <span
-                        [ngStyle]="closeAsideStatus ? {'display':'none'}:{'display':'flex'} " 
+                        [ngStyle]="!closeAsideStatus ? {'display':'none'}:{'display':'flex'} " 
                         > Expenses
                     </span>
                     
@@ -83,7 +83,7 @@
                     </svg>
                     <!-- <img [src]="clients_icon" alt=""> -->
                     <span
-                        [ngStyle]="closeAsideStatus ? {'display':'none'}:{'display':'flex'} " 
+                        [ngStyle]="!closeAsideStatus ? {'display':'none'}:{'display':'flex'} " 
                         > Clients
                     </span>
                     
@@ -102,7 +102,7 @@
                         />
                     </svg>
                     <span
-                        [ngStyle]="closeAsideStatus ? {'display':'none'}:{'display':'flex'} " 
+                        [ngStyle]="!closeAsideStatus ? {'display':'none'}:{'display':'flex'} " 
                         > Team
                     </span>
                     <!-- <img [src]="team_icon" alt="" style="width: 20px;"> -->
@@ -125,7 +125,7 @@
                         />
                     </svg>
                      <span
-                        [ngStyle]="closeAsideStatus ? {'display':'none'}:{'display':'flex'} " 
+                        [ngStyle]="!closeAsideStatus ? {'display':'none'}:{'display':'flex'} " 
                         > Settings
                     </span>
                     <!-- <img [src]="settings_icon" alt=""> -->
@@ -145,7 +145,7 @@
                         />
                     </svg>
                     <span
-                        [ngStyle]="closeAsideStatus ? {'display':'none'}:{'display':'flex'} " 
+                        [ngStyle]="!closeAsideStatus ? {'display':'none'}:{'display':'flex'} " 
                         > Activity Log
                     </span>
                     <!-- <img [src]="log_icon" alt=""> -->

@@ -1,13 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, Event, NavigationStart, NavigationEnd, NavigationError, ActivatedRoute } from '@angular/router';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { ActivatedRoute, Data } from '@angular/router';
 
-import { DashboardComponent } from '../dashboard/dashboard.component';
-import { InvoicesComponent } from '../invoices/invoices.component';
-import { ExpensesComponent } from '../expenses/expenses.component';
-import { ClientsComponent } from '../clients/clients.component';
-import { TeamComponent } from '../team/team.component';
-import { SettingsComponent } from '../settings/settings.component';
-import { ActivityLogComponent } from '../activity-log/activity-log.component';
 
 @Component({
   selector: 'app-side-bar',
@@ -15,17 +8,21 @@ import { ActivityLogComponent } from '../activity-log/activity-log.component';
   styleUrls: ['./side-bar.component.scss']
 })
 export class SideBarComponent implements OnInit {
-  closeAsideStatus:boolean= false;
+  closeAsideStatus:boolean= true;
+  @ViewChild('drawer ', { read: ElementRef }) drawer :ElementRef;
  
-  constructor() { }
-
+  constructor(private route:ActivatedRoute , private renderer:Renderer2) { }
 
   ngOnInit(): void {
-    console.log(this.closeAsideStatus)
+ 
   }
   closeAsideBar(){
-    this.closeAsideStatus=! this.closeAsideStatus;
-    console.log(this.closeAsideStatus)
+    this.closeAsideStatus=false;
   }
+  toggle(){
+    this.renderer.setStyle(this.drawer.nativeElement,'width','200px');
+    this.closeAsideStatus=true;
+  }
+
 
 }
