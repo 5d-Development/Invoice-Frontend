@@ -27,6 +27,10 @@ import { ActivityLogComponent } from './activity-log/activity-log.component';
 import { ClientsSummaryComponent } from './clients/clients-summary/clients-summary.component';
 import { TeamSummaryComponent } from './team/team-summary/team-summary.component';
 import { LogSummaryComponent } from './activity-log/log-summary/log-summary.component';
+import { TopHeaderComponent } from './top-header/top-header.component';
+import { HeaderTitleComponent } from './top-header/header-title/header-title.component';
+import { NotificationComponent } from './notification/notification.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +49,11 @@ import { LogSummaryComponent } from './activity-log/log-summary/log-summary.comp
     ActivityLogComponent,
     ClientsSummaryComponent,
     TeamSummaryComponent,
-    LogSummaryComponent
+    LogSummaryComponent,
+    TopHeaderComponent,
+    HeaderTitleComponent,
+    NotificationComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
