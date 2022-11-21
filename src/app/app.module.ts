@@ -66,12 +66,10 @@ import { AdminComponent } from './admin/admin.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-
     MatProgressBarModule,
     MatSidenavModule,
     MatFormFieldModule,
     MatSelectModule,
-
     ReactiveFormsModule,
     SweetAlert2Module.forRoot(),
     GoogleChartsModule,
