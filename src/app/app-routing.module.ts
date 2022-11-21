@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ActivityLogComponent } from './activity-log/activity-log.component';
+import { AdminComponent } from './admin/admin.component';
 import { ClientsComponent } from './clients/clients.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ExpensesComponent } from './expenses/expenses.component';
@@ -13,50 +14,21 @@ import { SettingsComponent } from './settings/settings.component';
 import { TeamComponent } from './team/team.component';
 
 const routes: Routes = [
-  {
-    path: "",
-    component: LoaderComponent
-  },
-  {
-    path: "login",
-    component: LoginComponent
-  },
-  {
-    path: "change-password",
-    component: ChangePasswordComponent
-  },
-  {
-    path: "set-new-password",
-    component: SetNewPasswordComponent
-  },
-  {
-    path: "dashboard",
-    component: DashboardComponent
-  },
-  {
-    path: "invoices",
-    component: InvoicesComponent
-  },
-  {
-    path: "expenses",
-    component: ExpensesComponent
-  },
-  {
-    path: "clients",
-    component: ClientsComponent
-  },
-  {
-    path: "team",
-    component: TeamComponent
-  },
-  {
-    path: "settings",
-    component: SettingsComponent
-  },
-  {
-    path: "activity-log",
-    component: ActivityLogComponent
-  },
+  {path: "", component: LoaderComponent},
+  {path: "login",component: LoginComponent},
+  {path: "change-password",component: ChangePasswordComponent},
+  {path: "set-new-password",component: SetNewPasswordComponent},
+  {path: "admin",component:AdminComponent,children:[
+    {path: "",component: DashboardComponent},
+    {path: "dashboard",component: DashboardComponent, data: {activeTab:'Dashboard'}},
+    {path: "invoices",component: InvoicesComponent, data: {activeTab:'Invoices'}},
+    {path: "expenses",component: ExpensesComponent, data: {activeTab:'Expenses'}},
+    {path: "clients",component: ClientsComponent , data: {activeTab:'Clients'}},
+    {path: "team",component: TeamComponent, data: {activeTab:'Teams'}},
+    {path: "settings",component: SettingsComponent, data: {activeTab:'Settings'}},
+    {path: "activity-log",component: ActivityLogComponent, data: {activeTab:'Activity Log'}},
+  ]},
+
 ];
 
 @NgModule({

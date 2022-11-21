@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   formSubmit() {
     this.show_success_Alert = true;
-    this.router.navigate(['/dashboard'], { relativeTo: this.activatedRoute });
+    this.router.navigate(['/admin'], { relativeTo: this.activatedRoute });
   }
 
   ngOnInit(): void {

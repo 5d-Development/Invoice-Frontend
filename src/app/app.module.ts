@@ -31,6 +31,10 @@ import { LogSummaryComponent } from './activity-log/log-summary/log-summary.comp
 import { InvoicesSummaryComponent } from './invoices/invoices-summary/invoices-summary.component';
 import { CurrencySummaryComponent } from './invoices/currency-summary/currency-summary.component';
 import { ExpensesSummaryComponent } from './expenses/expenses-summary/expenses-summary.component';
+import { TopHeaderComponent } from './top-header/top-header.component';
+import { HeaderTitleComponent } from './top-header/header-title/header-title.component';
+import { NotificationComponent } from './notification/notification.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +56,11 @@ import { ExpensesSummaryComponent } from './expenses/expenses-summary/expenses-s
     LogSummaryComponent,
     InvoicesSummaryComponent,
     CurrencySummaryComponent,
-    ExpensesSummaryComponent
+    ExpensesSummaryComponent,
+    TopHeaderComponent,
+    HeaderTitleComponent,
+    NotificationComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
