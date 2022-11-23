@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: "change-password",component: ChangePasswordComponent},
   {path: "set-new-password",component: SetNewPasswordComponent},
   {path: "admin",component:AdminComponent,children:[
-    {path: "",component: DashboardComponent},
+    {path: "",component: DashboardComponent, data: {activeTab:'Dashboard'}},
     {path: "dashboard",component: DashboardComponent, data: {activeTab:'Dashboard'}},
     {path: "invoices",component: InvoicesComponent, data: {activeTab:'Invoices'}},
     {path: "expenses",component: ExpensesComponent, data: {activeTab:'Expenses'}},
