@@ -1,10 +1,93 @@
-<div class="container">
-    <p>invoices works!</p>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, odit facere laboriosam illum possimus
-        quibusdam ipsam sapiente dolorum amet. Dignissimos quidem soluta, numquam reiciendis ipsam, esse repellendus
-        magnam, sit laborum culpa nobis aliquam cum aut ullam. Vitae velit minus fugit distinctio earum quae quas
-        numquam ratione est maiores, accusamus doloremque, quia placeat saepe praesentium quaerat iure eius maxime
-        minima nesciunt qui? Libero quasi cum culpa eos eligendi qui fugit magnam accusamus eum porro, impedit
-        praesentium excepturi ratione sapiente, est deleniti nemo consequatur. Modi, maxime deleniti voluptatibus a
-        sequi quibusdam optio possimus earum? Aspernatur, repellat quia! Quo aspernatur alias ipsa placeat.</p>
+<div id="invoices">
+    <div class="container-fluid">
+        <a href="" id="new-invoice-btn" class="btn ">+ Add new invoice</a>
+        <div id="selections">
+            <h3 class="">Show: </h3>
+            <!-- Date Dropdown -->
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    {{ date_value }}
+                </button>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" #refEl1 (click)='change_date_value(refEl1)'>all</a>
+                    </li>
+                    <li><a class="dropdown-item" #refEl1 (click)='change_date_value(refEl1)'>This Month</a>
+                    </li>
+                    <li><a class="dropdown-item" #refEl2 (click)='change_date_value(refEl2)'>Last Month</a>
+                    </li>
+                    <li><a class="dropdown-item" #refEl3 (click)='change_date_value(refEl3)'>from (date)</a>
+                    </li>
+                    <li><a class="dropdown-item" #refEl4 (click)='change_date_value(refEl4)'>to (date)</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Status Dropdown -->
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    {{ status_value }}
+                </button>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" #refEl5 (click)='change_status_value(refEl5)'>all</a></li>
+                    <li><a class="dropdown-item" #refEl6 (click)='change_status_value(refEl6)'>due</a></li>
+                    <li><a class="dropdown-item" #refEl7 (click)='change_status_value(refEl7)'>overdue</a></li>
+                    <li><a class="dropdown-item" #refEl8 (click)='change_status_value(refEl8)'>archived</a></li>
+                    <li><a class="dropdown-item" #refEl8 (click)='change_status_value(refEl8)'>draft</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col" i18n>Date / Time</th>
+                    <th scope="col" i18n>Client</th>
+                    <th scope="col" i18n>Project</th>
+                    <th scope="col">Currency</th>
+                    <th scope="col">Subtotal</th>
+                    <th scope="col">Tax Rate %</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Due</th>
+                    <th scope="col">Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr
+                    *ngFor="let item of collection | paginate: { itemsPerPage: itemPerPage, currentPage: page_number }; let i = index;">
+                    <th scope="row"> {{ itemPerPage * (page_number - 1) + i + 1 }} </th>
+                    <td>Mar 15, 2020 11:57 AM</td>
+                    <td>Client Name {{ itemPerPage * (page_number - 1) + i + 1 }}</td>
+                    <td>Project Name {{ itemPerPage * (page_number - 1) + i + 1 }}</td>
+                    <td>USD</td>
+                    <td> {{ collection[itemPerPage * (page_number - 1) + i ] }}</td>
+                    <td>14</td>
+                    <td>{{ collection[itemPerPage * (page_number - 1) + i ] * 5 }}</td>
+                    <td>Due</td>
+                    <td>{{ collection[itemPerPage * (page_number - 1) + i ] * 5 }}</td>
+                    <td class="actions">
+                        <a>
+                            <img src="../../assets/img/eye-regular.svg" alt="" title="View"
+                                style="width: 23px; height: 23px;">
+                        </a>
+                        <a>
+                            <img src="../../assets/img/edit-regular.svg" alt="" title="Edit">
+                        </a>
+                        <a>
+                            <img src="../../assets/img/trash-alt-regular.svg" alt="" title="Delete">
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <pagination-controls class="invoice-pagination" (pageChange)="page_number = $event"></pagination-controls>
+    </div>
 </div>

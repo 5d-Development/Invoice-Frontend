@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { GoogleChartsModule } from 'angular-google-charts';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -73,6 +74,7 @@ import { AdminComponent } from './admin/admin.component';
     ReactiveFormsModule,
     SweetAlert2Module.forRoot(),
     GoogleChartsModule,
+    NgxPaginationModule
   ],
   providers: [
     DashboardComponent,

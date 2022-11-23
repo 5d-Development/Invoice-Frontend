@@ -1,0 +1,128 @@
+@import '../../assets/css/variables';
+@import '../../assets/css/media-query';
+
+#invoices {
+    border-top: solid 2px $border-grey;
+    margin-top: 2rem;
+    padding: 1rem 1.5rem;
+
+    #new-invoice-btn {
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 600;
+        padding-right: 2.5rem;
+        padding-left: 2.5rem;
+        margin-bottom: 2rem;
+        border-radius: $button-border-radius;
+        border-color: $main-purple;
+        background-color: $main-purple;
+    }
+
+    // Dropdowns
+    #selections {
+        width: 50%;
+        display: flex;
+        align-items: baseline;
+
+        @include media-breakpoint-down (md) {
+            width: 100%;
+        }
+
+        h3 {
+            text-transform: capitalize;
+            color: $text-grey;
+            font-weight: 600;
+        }
+
+        .dropdown {
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+
+            button {
+                background-color: transparent;
+                color: $text-grey;
+                border: solid 1px $border-grey;
+                border-radius: $dropdown-border-radius;
+                position: relative;
+                width: 10rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                text-transform: capitalize;
+            }
+
+            ul {
+                padding: 0;
+                border-radius: $dropdown-border-radius;
+                overflow: hidden;
+
+                &.dropdown-menu {
+                    li {
+                        cursor: pointer;
+
+                        a {
+                            padding: 0.8rem 0.8rem;
+                            text-align: start;
+                            font-size: 1rem;
+                            font-weight: 600;
+                            color: $text-grey;
+                            text-transform: capitalize;
+
+                            &.dropdown-item {
+                                &:active {
+                                    background-color: $main-purple;
+                                    color: #fff;
+                                }
+
+                                &:hover {
+                                    background-color: $main-purple;
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Table
+    .table {
+        margin-top: 2rem;
+
+        tr {
+            td {
+                &.actions {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    a {
+                        margin: auto 0.5rem;
+                        cursor: pointer;
+
+                        img {
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Pagination Styles
+.invoice-pagination {
+    font-family: BellotaText-Regular, sans-serif;
+    font-size: 1rem;
+
+    ::ng-deep {
+        .ngx-pagination {
+            .current {
+                background: $main-purple;
+                border-radius: 50%;
+            }
+        }
+    }
+}
