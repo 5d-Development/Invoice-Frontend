@@ -19,7 +19,6 @@ export class NotificationComponent implements OnInit {
     {
       this.currentLang=localStorage.getItem('langi18n') || 'en';
       this.currentLangChange(this.currentLang);
-      // this.changeCssFile(this.currentLang);
      }
 
   ngOnInit(): void {
@@ -28,7 +27,6 @@ export class NotificationComponent implements OnInit {
     this.router.navigate(['/'], { relativeTo: this.activatedRoute });
   }
   currentLangChange(lang:string) {
-    // this.translate.use(lang);
     localStorage.setItem('langi18n', lang);
     let htmlTag = this.document.getElementsByTagName("html")[0] as HTMLHtmlElement;
     htmlTag.dir = lang === "ar" ? "rtl" : "ltr";
@@ -37,6 +35,7 @@ export class NotificationComponent implements OnInit {
     this.changeCssFile(lang);
 
   }
+  //Method to switch between to styles
   changeCssFile(lang: string) {
     let headTag = this.document.getElementsByTagName("head")[0] as HTMLHeadElement;
     let existingLink = this.document.getElementById("langCss") as HTMLLinkElement;
