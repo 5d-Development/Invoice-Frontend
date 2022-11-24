@@ -1,0 +1,115 @@
+@import '../../../assets/css/variables';
+@import '../../../assets/css/media-query';
+
+#new-edit-invoice {
+    padding: 1rem 1.5rem;
+
+    #top-bar {
+        display: flex;
+        justify-content: space-between;
+        background-color: $main-purple;
+        padding: 0.7rem 0 0.7rem 1rem;
+
+        #back {
+            width: fit-content;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            a {
+                img {
+                    width: 15px;
+                    margin-right: 0.5rem;
+                }
+            }
+
+            label {
+                color: white;
+                font-weight: 600;
+                font-size: 1rem;
+            }
+        }
+
+        #options {
+            display: flex;
+            align-items: center;
+
+            .dropdown {
+                button {
+                    background-color: transparent;
+                    color: $border-grey;
+                    border: none;
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                }
+
+                ul {
+                    padding: 0;
+                    border-radius: $dropdown-border-radius;
+                    overflow: hidden;
+
+                    &.dropdown-menu {
+                        li {
+                            cursor: pointer;
+                            border-top: dashed 1px $border-grey;
+
+                            &:first-child {
+                                border-top: none;
+                            }
+
+                            a {
+                                padding: 0.8rem 0.8rem;
+                                text-align: start;
+                                font-size: 1rem;
+                                font-weight: 500;
+                                text-transform: capitalize;
+                                display: flex;
+                                align-items: center;
+
+                                &.dropdown-item {
+                                    &:active {
+                                        background-color: $main-purple;
+                                        color: #fff;
+                                    }
+
+                                    &:hover {
+                                        background-color: $main-purple;
+                                        color: #fff;
+                                    }
+                                }
+
+                                img {
+                                    width: 15px;
+                                    margin-right: 0.5rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            #save-changes {
+                margin-left: 1rem;
+                margin-right: 1rem;
+
+                button {
+                    background-color: #fff;
+                    color: $main-purple;
+                    border-radius: $button-border-radius;
+                }
+            }
+        }
+    }
+
+    #main-content {
+        border: solid 2px $border-grey;
+        border-top: none;
+        padding: 2rem 1rem;
+
+        h1 {
+            color: $main-purple;
+            font-weight: 600;
+        }
+    }
+}

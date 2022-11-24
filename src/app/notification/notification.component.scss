@@ -1,5 +1,6 @@
 @import '../../assets/css/variables';
 @import '../../assets/css/media-query';
+
 #header {
     padding: 2rem 1rem 0;
     width: fit-content;
@@ -28,8 +29,15 @@
             overflow: hidden;
 
             &.dropdown-menu {
+
+
                 li {
                     cursor: pointer;
+                    border-top: dashed 1px $border-grey;
+
+                    &:first-child {
+                        border-top: none;
+                    }
 
                     a {
                         padding: 0.8rem 0.8rem;
