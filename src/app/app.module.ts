@@ -78,6 +78,7 @@ import { NewEditInvoiceComponent } from './invoices/new-edit-invoice/new-edit-in
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
     SweetAlert2Module.forRoot(),
     GoogleChartsModule,
     NgxPaginationModule

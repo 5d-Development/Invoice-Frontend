@@ -63,16 +63,19 @@
         <h1>Details</h1>
 
         <form [formGroup]="invoice_form" (ngSubmit)="submit_form()">
-            <mat-form-field appearance="fill">
-                <mat-label>Choose a date</mat-label>
-              <!-- #docregion toggle -->
-                <input matInput [matDatepicker]="picker">
-                <mat-hint>MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              <!-- #enddocregion toggle -->
-              </mat-form-field>
-              
+
+            <label for="date" class="col-1 col-form-label">Date</label>
+            <div class="col-5">
+                <div class="input-group date" id="datepicker">
+                    <input type="text" class="form-control" id="date" />
+                    <span class="input-group-append">
+                        <span class="input-group-text bg-light d-block">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                    </span>
+                </div>
+            </div>
+
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">

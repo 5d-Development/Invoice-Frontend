@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute, Data } from '@angular/router';
 import { ActiveTabService } from 'src/app/shared/active-tab.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-new-edit-invoice',
@@ -22,7 +22,7 @@ export class NewEditInvoiceComponent implements OnInit {
 
   submit_form() {
     console.log('invoice form submitted successfully');
-    
+
   }
 
   ngOnInit(): void {
