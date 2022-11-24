@@ -36,6 +36,9 @@ import { TopHeaderComponent } from './top-header/top-header.component';
 import { HeaderTitleComponent } from './top-header/header-title/header-title.component';
 import { NotificationComponent } from './notification/notification.component';
 import { AdminComponent } from './admin/admin.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 @NgModule({
   declarations: [
@@ -74,7 +77,16 @@ import { AdminComponent } from './admin/admin.component';
     ReactiveFormsModule,
     SweetAlert2Module.forRoot(),
     GoogleChartsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      loader:{
+        provide:TranslateLoader,
+        useFactory:HttpLoaderFactory,
+        deps:[HttpClient]
+      }
+    })
   ],
   providers: [
     DashboardComponent,
@@ -88,3 +100,9 @@ import { AdminComponent } from './admin/admin.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// Method for Implemnt Translation
+export function HttpLoaderFactory (http:HttpClient){
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+
+}

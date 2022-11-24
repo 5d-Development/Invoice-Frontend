@@ -3,6 +3,7 @@ import { ActivatedRoute, Data } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ActiveTabService } from '../shared/active-tab.service';
 import { PageEvent } from '@angular/material/paginator';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-invoices',
@@ -20,7 +21,10 @@ export class InvoicesComponent implements OnInit {
   collection: string[] = [];
 
   activeTitleSubscribtion: Subscription = new Subscription;
-  constructor(private route: ActivatedRoute, private activeTabService: ActiveTabService) {
+  constructor(private route: ActivatedRoute, 
+              private activeTabService: ActiveTabService,
+              public translate:TranslateService) {
+                
     for (let i = 1; i <= 25; i++) {
       this.collection.push(`${i * 13001}`);
     }

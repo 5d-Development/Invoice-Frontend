@@ -4,14 +4,6 @@
   "newProjectRoot": "projects",
   "projects": {
     "Invoice-System": {
-      "i18n": {
-        "sourceLocale": "en-US",
-        "locales": {
-          "ar": {
-            "translation": "src/assets/language/messages.ar.xlf"
-          }
-        }
-      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -38,7 +30,17 @@
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "node_modules/bootstrap/dist/css/bootstrap.css",
-              "src/styles.scss"
+              {
+                "input": "src/styles-ar.scss",
+                "bundleName": "styles-ar",
+                "inject": false
+              },
+              {
+                "input": "src/styles.scss",
+                "bundleName": "styles",
+                "inject": false
+              }
+              
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",  
@@ -47,9 +49,6 @@
             ]
           },
           "configurations": {
-            "ar": {
-              "localize": ["ar"]
-            },
             "production": {
               "budgets": [
                 {
@@ -97,12 +96,6 @@
           },
           "defaultConfiguration": "development"
         },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "Invoice-System:build"
-          }
-        },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
@@ -118,6 +111,7 @@
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
+
             ],
             "scripts": []
           }

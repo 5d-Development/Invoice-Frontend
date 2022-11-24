@@ -18,7 +18,8 @@ export class DashboardComponent implements OnInit ,OnDestroy{
 
 
   constructor(private route:ActivatedRoute , 
-             private activeTabService:ActiveTabService) {
+             private activeTabService:ActiveTabService , 
+             ) {
 
    this.activeTitleSubscribtion=this.route.data.subscribe(
       (data: Data) => {

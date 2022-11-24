@@ -117,6 +117,10 @@
     .active-svg{
         fill:$main-purple !important;
     }
+    mat-drawer-content{
+        overflow: none;
+    }
+
 }
 
 #closed-bar {
