@@ -13,7 +13,6 @@
                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     <img src="../../assets/img/settings-grey.svg" alt="">
-                    <div class="new-item"></div>
                 </button>
 
                 <ul class="dropdown-menu">
@@ -52,9 +51,9 @@
 
             <!-- Save Changes Button -->
             <div id="save-changes">
-                <button class="btn">
-                    Save Changes
-                </button>
+                <label class="btn invisible">
+                    Save Changes btn
+                </label>
             </div>
         </div>
     </div>
@@ -62,30 +61,53 @@
     <div id="main-content">
         <h1>Details</h1>
 
-        <form [formGroup]="invoice_form" (ngSubmit)="submit_form()">
-
-            <label for="date" class="col-1 col-form-label">Date</label>
-            <div class="col-5">
-                <div class="input-group date" id="datepicker">
-                    <input type="text" class="form-control" id="date" />
-                    <span class="input-group-append">
-                        <span class="input-group-text bg-light d-block">
-                            <i class="fa fa-calendar"></i>
-                        </span>
-                    </span>
+        <form (ngSubmit)="submit_form()">
+            <div class="row align-items-center my-3">
+                <div class="col-12 col-xl-2 col-lg-2 col-md-3">
+                    <label>creation date</label>
+                </div>
+                <div class="col-12 col-xl-4 col-lg-6 col-md-9 calendar">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="Choose a Date" [(ngModel)]="model1" name="dp"
+                            ngbDatepicker #d1="ngbDatepicker" />
+                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d1.toggle()" type="button">
+                            <img src="../../../assets/img/calendar-alt-solid.svg" alt="">
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+            <div class="row align-items-center my-3">
+                <div class="col-12 col-xl-2 col-lg-2 col-md-3">
+                    <label>due date</label>
+                </div>
+                <div class="col-12 col-xl-4 col-lg-6 col-md-9 calendar">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="Choose a Date" [(ngModel)]="model2" name="dp"
+                            ngbDatepicker #d2="ngbDatepicker"/>
+                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d2.toggle()" type="button">
+                            <img src="../../../assets/img/calendar-alt-solid.svg" alt="">
+                        </button>
+                    </div>
+                </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="row align-items-center my-3">
+                <div class="col-12 col-xl-2 col-lg-2 col-md-3">
+                    <label>due date</label>
+                </div>
+                <div class="col-12 col-xl-4 col-lg-6 col-md-9 calendar">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="Choose a Date" [(ngModel)]="model2" name="dp"
+                            ngbDatepicker #d2="ngbDatepicker" />
+                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d2.toggle()" type="button">
+                            <img src="../../../assets/img/calendar-alt-solid.svg" alt="">
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Changes</button>
         </form>
 
     </div>
