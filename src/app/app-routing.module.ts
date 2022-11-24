@@ -6,6 +6,7 @@ import { ClientsComponent } from './clients/clients.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ExpensesComponent } from './expenses/expenses.component';
 import { InvoicesComponent } from './invoices/invoices.component';
+import { NewEditInvoiceComponent } from './invoices/new-edit-invoice/new-edit-invoice.component';
 import { LoaderComponent } from './loader/loader.component';
 import { ChangePasswordComponent } from './login/change-password/change-password.component';
 import { LoginComponent } from './login/login.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
     {path: "team",component: TeamComponent, data: {activeTab:'Teams'}},
     {path: "settings",component: SettingsComponent, data: {activeTab:'Settings'}},
     {path: "activity-log",component: ActivityLogComponent, data: {activeTab:'Activity Log'}},
+    {path: "new-invoice", component: NewEditInvoiceComponent, data: {activeTab:'New Invoice'}}
   ]},
 
 ];

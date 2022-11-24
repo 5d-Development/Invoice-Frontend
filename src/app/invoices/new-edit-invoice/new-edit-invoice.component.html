@@ -1,0 +1,89 @@
+<div id="new-edit-invoice">
+    <div id="top-bar">
+        <div id="back">
+            <a routerLink="/admin/invoices">
+                <img src="../../../assets/img/arrow-left-white.svg" alt="" title="back">
+            </a>
+            <label> Invoice #12345</label>
+        </div>
+
+        <div id="options">
+            <!-- options Dropdown -->
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <img src="../../assets/img/settings-grey.svg" alt="">
+                    <div class="new-item"></div>
+                </button>
+
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            <img src="../../../assets/img/plus-grey.svg" alt="">
+                            Create New
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            <img src="../../../assets/img/eye-grey.svg" alt="">
+                            Preview
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            <img src="../../../assets/img/print-grey.svg" alt="">
+                            Print
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            <img src="../../../assets/img/archive-grey.svg" alt="">
+                            Archive
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            <img src="../../../assets/img/trash-grey.svg" alt="">
+                            Delete
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Save Changes Button -->
+            <div id="save-changes">
+                <button class="btn">
+                    Save Changes
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <h1>Details</h1>
+
+        <form [formGroup]="invoice_form" (ngSubmit)="submit_form()">
+            <mat-form-field appearance="fill">
+                <mat-label>Choose a date</mat-label>
+              <!-- #docregion toggle -->
+                <input matInput [matDatepicker]="picker">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              <!-- #enddocregion toggle -->
+              </mat-form-field>
+              
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+</div>

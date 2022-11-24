@@ -42,7 +42,12 @@
 
                 &.dropdown-menu {
                     li {
+                        border-top: dashed 1px $border-grey;
                         cursor: pointer;
+
+                        &:first-child {
+                            border-top: none;
+                        }
 
                         a {
                             padding: 0.8rem 0.8rem;

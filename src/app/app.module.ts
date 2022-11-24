@@ -13,6 +13,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { LoaderComponent } from './loader/loader.component';
 import { LoginComponent } from './login/login.component';
@@ -36,6 +38,7 @@ import { TopHeaderComponent } from './top-header/top-header.component';
 import { HeaderTitleComponent } from './top-header/header-title/header-title.component';
 import { NotificationComponent } from './notification/notification.component';
 import { AdminComponent } from './admin/admin.component';
+import { NewEditInvoiceComponent } from './invoices/new-edit-invoice/new-edit-invoice.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +64,8 @@ import { AdminComponent } from './admin/admin.component';
     TopHeaderComponent,
     HeaderTitleComponent,
     NotificationComponent,
-    AdminComponent
+    AdminComponent,
+    NewEditInvoiceComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,6 +75,8 @@ import { AdminComponent } from './admin/admin.component';
     MatSidenavModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     ReactiveFormsModule,
     SweetAlert2Module.forRoot(),
     GoogleChartsModule,
