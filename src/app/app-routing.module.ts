@@ -12,6 +12,7 @@ import { ChangePasswordComponent } from './login/change-password/change-password
 import { LoginComponent } from './login/login.component';
 import { SetNewPasswordComponent } from './login/set-new-password/set-new-password.component';
 import { SettingsComponent } from './settings/settings.component';
+import { AuthGuardService } from './shared/auth-guard.service';
 import { TeamComponent } from './team/team.component';
 
 const routes: Routes = [
@@ -19,7 +20,7 @@ const routes: Routes = [
   {path: "login",component: LoginComponent},
   {path: "change-password",component: ChangePasswordComponent},
   {path: "set-new-password",component: SetNewPasswordComponent},
-  {path: "admin",component:AdminComponent,children:[
+  {path: "admin",component:AdminComponent,canActivate:[AuthGuardService],children:[
     {path: "",component: DashboardComponent, data: {activeTab:'Dashboard'}},
     {path: "dashboard",component: DashboardComponent, data: {activeTab:'Dashboard'}},
     {path: "invoices",component: InvoicesComponent, data: {activeTab:'Invoices'}},

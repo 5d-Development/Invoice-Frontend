@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { LoginService } from './services/login.service';
+import { UserLoginInfo } from './user-login.model';
+import { AuthenticationService } from '../shared/authentication.service';
 
 
 @Component({
@@ -12,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   show_success_Alert: boolean = false;
   show_failure_alert: boolean = false;
+  UserLoginInfo:UserLoginInfo;
 
   LoginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -19,11 +23,28 @@ export class LoginComponent implements OnInit {
   })
 
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private router: Router,
+              private activatedRoute: ActivatedRoute,
+              private loginService:LoginService,
+              private auth:AuthenticationService) { }
 
   formSubmit() {
-    this.show_success_Alert = true;
-    this.router.navigate(['/admin'], { relativeTo: this.activatedRoute });
+    if(this.LoginForm.valid){
+      this.UserLoginInfo={
+        "Email":this.LoginForm.get('email')?.value !,
+        "Password": this.LoginForm.get('password')?.value !,
+        "RememberMe": true  
+       }
+       this.auth.isloggedIn(this.UserLoginInfo)
+      // this.loginService.userLogin(this.UserLoginInfo);
+       console.log(this.UserLoginInfo)    
+
+    }
+   
+    // this.show_success_Alert = true;
+    // this.router.navigate(['/admin'], { relativeTo: this.activatedRoute });
+    // this.loginService.fetchData();
+   // this.loginService.postData(this.UserLoginInfo)
   }
 
   ngOnInit(): void {

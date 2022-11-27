@@ -45,6 +45,7 @@ import { NewEditInvoiceComponent } from './invoices/new-edit-invoice/new-edit-in
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -106,7 +107,7 @@ import { FormsModule } from '@angular/forms';
     ClientsComponent,
     TeamComponent,
     SettingsComponent,
-    ActivityLogComponent
+    ActivityLogComponent,
   ],
   bootstrap: [AppComponent]
 })
