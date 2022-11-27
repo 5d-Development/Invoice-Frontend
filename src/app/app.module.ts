@@ -44,6 +44,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NewEditInvoiceComponent } from './invoices/new-edit-invoice/new-edit-invoice.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { NewTeamMemberComponent } from './team/new-team-member/new-team-member.component';
+import { DeleteTeamMemberComponent } from './team/delete-team-member/delete-team-member.component';
+import { EditTeamMemberComponent } from './team/edit-team-member/edit-team-member.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +74,9 @@ import { FormsModule } from '@angular/forms';
     NotificationComponent,
     AdminComponent,
     NewEditInvoiceComponent,
+    NewTeamMemberComponent,
+    DeleteTeamMemberComponent,
+    EditTeamMemberComponent,
   ],
   imports: [
     BrowserModule,

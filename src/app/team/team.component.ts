@@ -11,6 +11,10 @@ import { ActiveTabService } from '../shared/active-tab.service';
 export class TeamComponent implements OnInit ,OnDestroy{
   activeTab: string='';
   activeIcon: string = '../../assets/img/team.svg';
+  page_number: number = 1;
+  itemPerPage: number = 10;
+  collection: object[] = [{role:'adminstrator', name: 'mohamed', email: 'abc@email.com'}, {role: 'user', name:'mostafa', email: 'mostafa@email.com'}];
+
   activeTitleSubscribtion: Subscription = new Subscription;
   constructor(private route:ActivatedRoute ,  private activeTabService:ActiveTabService) { }
 

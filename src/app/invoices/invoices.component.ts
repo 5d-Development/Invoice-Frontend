@@ -18,15 +18,15 @@ export class InvoicesComponent implements OnInit {
   status_value: string = 'Status';
   page_number: number = 1;
   itemPerPage: number = 10;
-  collection: string[] = [];
+  collection: object[] = [{ date: 'nov 27, 2022 4:04 PM', client: 'client1', project: 'project1', currency: 'usd', subtotal: 12000, taxRate: 14, total: 15000, status: 'due', due: 'nov 30, 2022 12:00 PM' }, { date: 'nov 28, 2022 4:04 PM', client: 'client name', project: 'project name', currency: 'egp', subtotal: 18000, taxRate: 80, total: 40000, status: 'overdue', due: 'nov 32, 2022 12:00 PM' }];
 
   activeTitleSubscribtion: Subscription = new Subscription;
-  constructor(private route: ActivatedRoute, 
-              private activeTabService: ActiveTabService,
-              public translate:TranslateService) {
-                
+  constructor(private route: ActivatedRoute,
+    private activeTabService: ActiveTabService,
+    public translate: TranslateService) {
+
     for (let i = 1; i <= 25; i++) {
-      this.collection.push(`${i * 13001}`);
+      // this.collection.push(`${i * 13001}`);
     }
   }
   change_date_value(el: HTMLElement) {

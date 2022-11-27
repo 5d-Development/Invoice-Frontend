@@ -16,13 +16,13 @@
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" #refEl1 (click)='change_date_value(refEl1)'>all</a>
                     </li>
-                    <li><a class="dropdown-item" #refEl1 (click)='change_date_value(refEl1)'>This Month</a>
+                    <li><a class="dropdown-item" #refEl2 (click)='change_date_value(refEl2)'>This Month</a>
                     </li>
-                    <li><a class="dropdown-item" #refEl2 (click)='change_date_value(refEl2)'>Last Month</a>
+                    <li><a class="dropdown-item" #refEl3 (click)='change_date_value(refEl3)'>Last Month</a>
                     </li>
-                    <li><a class="dropdown-item" #refEl3 (click)='change_date_value(refEl3)'>from (date)</a>
+                    <li><a class="dropdown-item" #refEl4 (click)='change_date_value(refEl4)'>from (date)</a>
                     </li>
-                    <li><a class="dropdown-item" #refEl4 (click)='change_date_value(refEl4)'>to (date)</a>
+                    <li><a class="dropdown-item" #refEl5 (click)='change_date_value(refEl5)'>to (date)</a>
                     </li>
                 </ul>
             </div>
@@ -66,15 +66,15 @@
                 <tr
                     *ngFor="let item of collection | paginate: { itemsPerPage: itemPerPage, currentPage: page_number }; let i = index;">
                     <th scope="row"> {{ itemPerPage * (page_number - 1) + i + 1 }} </th>
-                    <td>Mar 15, 2020 11:57 AM</td>
-                    <td>Client Name {{ itemPerPage * (page_number - 1) + i + 1 }}</td>
-                    <td>Project Name {{ itemPerPage * (page_number - 1) + i + 1 }}</td>
-                    <td>USD</td>
-                    <td> {{ collection[itemPerPage * (page_number - 1) + i ] }}</td>
-                    <td>14</td>
-                    <td>{{ collection[itemPerPage * (page_number - 1) + i ] * 5 }}</td>
-                    <td>Due</td>
-                    <td>{{ collection[itemPerPage * (page_number - 1) + i ] * 5 }}</td>
+                    <td class="capitalize">{{ item.date }}</td>
+                    <td class="capitalize">{{ item.client }}</td>
+                    <td class="capitalize">{{ item.project }}</td>
+                    <td class="uppercase">{{ item.currency }}</td>
+                    <td>{{ item.subtotal }}</td>
+                    <td>{{ item.taxRate }}</td>
+                    <td>{{ item.total }}</td>
+                    <td class="capitalize">{{item.status}}</td>
+                    <td>{{ item.due }}</td>
                     <td class="actions">
                         <a>
                             <img src="../../assets/img/eye-regular.svg" alt="" title="View"
