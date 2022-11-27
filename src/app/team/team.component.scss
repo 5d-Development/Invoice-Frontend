@@ -6,6 +6,10 @@
     .table {
         margin-top: 2rem;
 
+        thead {
+            border-color: $main-purple;
+        }
+
         tr {
             td {
                 &.actions {
