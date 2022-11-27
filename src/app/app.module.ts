@@ -13,9 +13,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-
 import { LoaderComponent } from './loader/loader.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -42,6 +42,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NewEditInvoiceComponent } from './invoices/new-edit-invoice/new-edit-invoice.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -78,10 +80,10 @@ import { NewEditInvoiceComponent } from './invoices/new-edit-invoice/new-edit-in
     MatSidenavModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
     SweetAlert2Module.forRoot(),
     GoogleChartsModule,
     NgxPaginationModule,
@@ -93,7 +95,9 @@ import { NewEditInvoiceComponent } from './invoices/new-edit-invoice/new-edit-in
         useFactory:HttpLoaderFactory,
         deps:[HttpClient]
       }
-    })
+    }),
+    NgbModule,
+    FormsModule
   ],
   providers: [
     DashboardComponent,
