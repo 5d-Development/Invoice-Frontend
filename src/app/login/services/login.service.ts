@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { AuthenticationService } from 'src/app/shared/authentication.service';
 import { UserLoginInfo } from '../user-login.model';
@@ -15,7 +16,8 @@ export class LoginService {
   flagSucess = new Subject<boolean>();
 
 
-  constructor(private authService:AuthenticationService) { 
+  constructor(private authService:AuthenticationService,
+              private router:Router) { 
   }
 
   userLogin(userLoginInfo:UserLoginInfo){
@@ -26,6 +28,7 @@ export class LoginService {
       this.flagSucess.next(true);
       this.flagError.next(false);
       this.loginSucessMessage.next(userEmail);
+      this.router.navigate(['admin'])
     },
     errorMessage =>{
       console.log(errorMessage)

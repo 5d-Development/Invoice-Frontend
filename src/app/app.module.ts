@@ -39,7 +39,7 @@ import { HeaderTitleComponent } from './top-header/header-title/header-title.com
 import { NotificationComponent } from './notification/notification.component';
 import { AdminComponent } from './admin/admin.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NewEditInvoiceComponent } from './invoices/new-edit-invoice/new-edit-invoice.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -47,6 +47,7 @@ import { FormsModule } from '@angular/forms';
 import { SucessAlertComponent } from './shared/alerts/sucess-alert/sucess-alert.component';
 import { ErrorAlertComponent } from './shared/alerts/error-alert/error-alert.component';
 import { LoadingViewComponent } from './shared/loading-view/loading-view.component';
+import { AuthInterceptorService } from './shared/auth-interceptor.service';
 
 
 @NgModule({
@@ -114,6 +115,10 @@ import { LoadingViewComponent } from './shared/loading-view/loading-view.compone
     TeamComponent,
     SettingsComponent,
     ActivityLogComponent,
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:AuthInterceptorService,
+      multi:true}
   ],
   bootstrap: [AppComponent]
 })

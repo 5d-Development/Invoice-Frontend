@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable, take, tap } from 'rxjs';
+import { map, Observable, take, tap } from 'rxjs';
 import { AuthenticationService } from './authentication.service';
 
 @Injectable({
@@ -16,7 +16,9 @@ export class AuthGuardService implements CanActivate{
     canActivate(route: ActivatedRouteSnapshot,
                 state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
-        // this.authService.userLoginResponse.pipe(take(1))
+        this.authService.userLoginResponse.pipe(
+          map(user =>{console.log(user)})
+        )
         // .subscribe(
         //   userTokenObject =>{ 
         //     console.log(userTokenObject)
@@ -24,13 +26,12 @@ export class AuthGuardService implements CanActivate{
         //   }
         // );
         this.TokenObject=JSON.parse(localStorage.getItem('userLogin') || '{}' );
-  
-        if(Object.keys(this.TokenObject ).length === 0 ){
+        this.isAuthienticatedUser=Object.keys(this.TokenObject ).length === 0 ;
+        if(this.isAuthienticatedUser){
           this.router.navigate(['/'])
           return false
         }
         else {
-          this.router.navigate(['/admin'])
           return true
         }
     }
