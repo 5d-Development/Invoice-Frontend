@@ -44,6 +44,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NewEditInvoiceComponent } from './invoices/new-edit-invoice/new-edit-invoice.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { SucessAlertComponent } from './shared/alerts/sucess-alert/sucess-alert.component';
+import { ErrorAlertComponent } from './shared/alerts/error-alert/error-alert.component';
+import { LoadingViewComponent } from './shared/loading-view/loading-view.component';
 
 
 @NgModule({
@@ -72,6 +75,9 @@ import { FormsModule } from '@angular/forms';
     NotificationComponent,
     AdminComponent,
     NewEditInvoiceComponent,
+    SucessAlertComponent,
+    ErrorAlertComponent,
+    LoadingViewComponent,
   ],
   imports: [
     BrowserModule,

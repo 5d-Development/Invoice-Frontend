@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from './services/login.service';
 import { UserLoginInfo } from './user-login.model';
 import { AuthenticationService } from '../shared/authentication.service';
+import { Subject } from 'rxjs';
 
 
 @Component({
@@ -15,6 +16,8 @@ export class LoginComponent implements OnInit {
 
   show_success_Alert: boolean = false;
   show_failure_alert: boolean = false;
+  showLoading: boolean = false;
+ 
   UserLoginInfo:UserLoginInfo;
 
   LoginForm = new FormGroup({
@@ -22,11 +25,9 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', [Validators.required])
   })
 
-
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
-              private loginService:LoginService,
-              private auth:AuthenticationService) { }
+              private loginService:LoginService,) { }
 
   formSubmit() {
     if(this.LoginForm.valid){
@@ -35,9 +36,10 @@ export class LoginComponent implements OnInit {
         "Password": this.LoginForm.get('password')?.value !,
         "RememberMe": true  
        }
-       this.auth.isloggedIn(this.UserLoginInfo)
-      // this.loginService.userLogin(this.UserLoginInfo);
-       console.log(this.UserLoginInfo)    
+      
+      this.loginService.userLogin(this.UserLoginInfo); 
+      this.showLoading=true;
+      // console.log(this.UserLoginInfo)    
 
     }
    
@@ -48,6 +50,19 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loginService.flagError.subscribe((errorFlag =>
+      {
+        this.show_failure_alert=errorFlag;
+        this.showLoading=false;
+      }
+      ));
+    this.loginService.flagSucess.subscribe((sucessFlag =>
+      {
+        this.show_success_Alert=sucessFlag;
+        this.showLoading=false;
+      }
+      ))
+
   }
 
 }

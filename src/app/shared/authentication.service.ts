@@ -1,62 +1,58 @@
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { LoginService } from '../login/services/login.service';
+import { BehaviorSubject, catchError, tap, throwError } from 'rxjs';
+import { LoginResponseModel } from '../login/services/login-response.model';
+import { UserLoginInfo } from '../login/user-login.model';
+
+export interface AuthResponseData{
+  "Token": string,
+  "Expiration": string,
+  "Message" ?: string 
+}
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthenticationService {
-  //authToken:boolean = true;
-  _isAuthinticated = new Subject<Boolean>;
-  isAuth
+  API_URL_BASE='http://invoices.5d-dev.com/api/';
+  userLoginResponse = new BehaviorSubject<LoginResponseModel |null>(null);
 
-  constructor(private loginService:LoginService) {
-    this._isAuthinticated.next(false)
-   this.isAuth=this._isAuthinticated.subscribe(
-      (data =>{
-        return data;
-       // console.log(data)
-      })
-    )
+  constructor(private httpRequest:HttpClient) {
   }
 
-  // isAuthenticated() {
-  //   const promise = new Promise<boolean >(
-  //     (resolve, reject) => {
-  //       setTimeout(() => {
-  //        const Auth=JSON.parse(localStorage.getItem("auth")|| '{}');
-  //        if(Auth===true){
-  //         resolve(true);
-  //        }
-  //        else{
-  //         resolve(false)
-  //        }
-     
-  //       }, 800);
-  //       // reject(this.isloggedOut())
-  //     }
-  //   );
-  //   return promise;
-  // }
-
-  isloggedIn(userLoginInfo:object) {
-    this.loginService.userLogin(userLoginInfo) 
-     .subscribe((data:any)=>{
-      console.log((data ? console.log(data) : console.log("no data")));
-      console.log(data.Token)
-      localStorage.setItem("auth",JSON.stringify(data.Token));
-      this._isAuthinticated.next(true)
-      console.log(this.isAuth)
-    })
-
-
-    return  this._isAuthinticated;
-
+  // Fetching Login Calling with API
+  fetchLoginIn(userLoginInfo:UserLoginInfo){
+      return this.httpRequest.post<AuthResponseData>(this.API_URL_BASE + 'Account/SignIn',userLoginInfo)
+      .pipe(
+        catchError(this.handleError),
+        tap(
+          responseData=>{
+            const expireTokenDate = new Date(responseData.Expiration)
+            const userLoginResponse = new LoginResponseModel(
+              responseData.Token,
+              expireTokenDate
+            );
+            this.userLoginResponse.next(userLoginResponse);
+            localStorage.setItem('userLogin', JSON.stringify(userLoginResponse))
+          }
+        )
+      )
   }
-  isloggedOut(){
-    this._isAuthinticated.next(false)
-    console.log("user is logged out");
-    return this._isAuthinticated;
 
+  private handleError(error: HttpErrorResponse) {
+    let errorMessage = "error happened";
+      // A client-side or network error occurred. Handle it accordingly.
+    if (error.error.status === 401) {
+      errorMessage="Please Contact your administrator to make Account"
+      return throwError(errorMessage);
+    } 
+      // The backend returned an unsuccessful response code.
+    else {
+      console.error(`Backend returned code ${error.status}, body was: `, error.error);
+    }
+    // Return an observable with a user-facing error message.
+    return throwError(() => new Error('Something bad happened; please try again later.'));
   }
+
 }
