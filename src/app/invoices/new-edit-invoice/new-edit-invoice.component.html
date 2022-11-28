@@ -17,13 +17,13 @@
 
                 <ul class="dropdown-menu">
                     <li>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" routerLink="/admin/new-invoice">
                             <img src="../../../assets/img/plus-grey.svg" alt="">
                             Create New
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" routerLink="/admin/preview-invoice">
                             <img src="../../../assets/img/eye-grey.svg" alt="">
                             Preview
                         </a>
@@ -41,10 +41,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">
-                            <img src="../../../assets/img/trash-grey.svg" alt="">
-                            Delete
-                        </a>
+                        <app-delete-invoice></app-delete-invoice>
                     </li>
                 </ul>
             </div>

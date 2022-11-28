@@ -47,6 +47,8 @@ import { FormsModule } from '@angular/forms';
 import { NewTeamMemberComponent } from './team/new-team-member/new-team-member.component';
 import { DeleteTeamMemberComponent } from './team/delete-team-member/delete-team-member.component';
 import { EditTeamMemberComponent } from './team/edit-team-member/edit-team-member.component';
+import { PreviewInvoiceComponent } from './invoices/preview-invoice/preview-invoice.component';
+import { DeleteInvoiceComponent } from './invoices/delete-invoice/delete-invoice.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +79,8 @@ import { EditTeamMemberComponent } from './team/edit-team-member/edit-team-membe
     NewTeamMemberComponent,
     DeleteTeamMemberComponent,
     EditTeamMemberComponent,
+    PreviewInvoiceComponent,
+    DeleteInvoiceComponent,
   ],
   imports: [
     BrowserModule,
