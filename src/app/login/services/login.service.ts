@@ -1,30 +1,36 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { AuthenticationService } from 'src/app/shared/authentication.service';
 import { UserLoginInfo } from '../user-login.model';
+import { LoginResponseModel } from './login-response.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
   userLoginInfo:UserLoginInfo;
-  API_URL_BASE='http://invoices.5d-dev.com/api/';
   loginErrorMessage = new BehaviorSubject<string>("");
   loginSucessMessage = new BehaviorSubject<string>("");
+  userLoginResponse = new BehaviorSubject<LoginResponseModel |null>(null);
   flagError = new Subject<boolean>();
   flagSucess = new Subject<boolean>();
 
 
   constructor(private authService:AuthenticationService,
-              private router:Router) { 
+              private router:Router,
+              private activatedRoute: ActivatedRoute,) { 
   }
 
   userLogin(userLoginInfo:UserLoginInfo){
   let userEmail=userLoginInfo.Email;
   this.authService.fetchLoginIn(userLoginInfo)
   .subscribe(responseData => {
-      console.log(responseData)
+      // console.log(responseData)
+      const expireTokenDate = new Date(responseData.Expiration)
+      const userLoginResponses = new LoginResponseModel(responseData.Token,expireTokenDate);
+      this.userLoginResponse.next(userLoginResponses);
+      localStorage.setItem('userLogin', JSON.stringify(userLoginResponses))
       this.flagSucess.next(true);
       this.flagError.next(false);
       this.loginSucessMessage.next(userEmail);
@@ -37,5 +43,25 @@ export class LoginService {
       this.loginErrorMessage.next(errorMessage);
     }
     )
+  }
+
+  userLogOut(){
+    this.userLoginResponse.next(null);
+    localStorage.removeItem('userLogin');
+    this.router.navigate(['/'], { relativeTo: this.activatedRoute })
+  }
+  autoLoginIn(){
+    const userLoginData=JSON.parse(localStorage.getItem('userLogin') || '{}');
+    if(!userLoginData) return;
+    console.log(userLoginData._tokenExpirationDate)
+    const loadedUser = new LoginResponseModel(userLoginData._token,new Date(userLoginData._tokenExpirationDate));
+    console.log(loadedUser)
+    if(loadedUser.getToken()){
+      this.userLoginResponse.next(loadedUser);
+      this.router.navigate(['admin'])
+    }  
+    else{
+      this.userLogOut();
+    }
   }
 }

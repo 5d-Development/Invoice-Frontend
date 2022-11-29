@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { map, Observable, take, tap } from 'rxjs';
+import { LoginService } from '../login/services/login.service';
 import { AuthenticationService } from './authentication.service';
 
 @Injectable({
@@ -11,42 +12,26 @@ export class AuthGuardService implements CanActivate{
   TokenObject:any;
 
 
-    constructor(private authService: AuthenticationService, private router: Router) {}
+    constructor(private authLoginService: LoginService, private router: Router) {}
   
     canActivate(route: ActivatedRouteSnapshot,
-                state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+                state: RouterStateSnapshot): Observable<boolean |UrlTree > | Promise<boolean |UrlTree > | boolean |UrlTree{
 
-        this.authService.userLoginResponse.pipe(
-          map(user =>{console.log(user)})
-        )
-        // .subscribe(
-        //   userTokenObject =>{ 
-        //     console.log(userTokenObject)
-        //     this.isAuthienticatedUser =!!userTokenObject
-        //   }
-        // );
-        this.TokenObject=JSON.parse(localStorage.getItem('userLogin') || '{}' );
-        this.isAuthienticatedUser=Object.keys(this.TokenObject ).length === 0 ;
-        if(this.isAuthienticatedUser){
-          this.router.navigate(['/'])
-          return false
-        }
-        else {
-          return true
-        }
+      return  this.authLoginService.userLoginResponse.pipe(
+        map(user =>
+          {
+            this.isAuthienticatedUser=!!user;
+            console.log( this.isAuthienticatedUser)
+            if(this.isAuthienticatedUser)
+              {
+                return true;
+              }
+            return this.router.createUrlTree(['admin']);
+          }
+          ))
+      
     }
   
 }
 
 
-// this.authService.isAuthenticated()
-//         .then(
-//           (authenticated: boolean) => {
-//             if (authenticated) {
-//               return true;
-//             } else {
-//               this.router.navigate(['/']);
-//               return false;
-//             }
-//           }
-//         );

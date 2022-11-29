@@ -118,7 +118,9 @@ import { AuthInterceptorService } from './shared/auth-interceptor.service';
     {
       provide:HTTP_INTERCEPTORS,
       useClass:AuthInterceptorService,
-      multi:true}
+      multi:true
+    }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                   
   ],
   bootstrap: [AppComponent]
 })

@@ -39,7 +39,8 @@ export class LoginComponent implements OnInit {
       
       this.loginService.userLogin(this.UserLoginInfo); 
       this.showLoading=true;
-      // console.log(this.UserLoginInfo)    
+      // console.log(this.UserLoginInfo)   
+       
 
     }
    

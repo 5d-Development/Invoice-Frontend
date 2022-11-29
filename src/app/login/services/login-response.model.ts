@@ -7,9 +7,9 @@ export class LoginResponseModel{
 
     getToken(){
         if(!this._token || new Date() > this._tokenExpirationDate){
+            localStorage.removeItem('userLogin');
             return null;
         }
         return this._token;
     }
 }
-const firstObject = new LoginResponseModel('',new Date)
