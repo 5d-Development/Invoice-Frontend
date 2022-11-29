@@ -1,0 +1,70 @@
+<div id="items">
+    <h1>items</h1>
+    <app-new-item></app-new-item>
+    <table class="table table-bordered text-center">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Item</th>
+                <th scope="col">Description</th>
+                <th scope="col">Unit Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total Price</th>
+                <th scope="col">Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr
+                *ngFor="let item of items | paginate: { itemsPerPage: itemPerPage, currentPage: page_number }; let i = index;">
+                <th scope="row"> {{ itemPerPage * (page_number - 1) + i + 1 }} </th>
+                <td class="capitalize">{{ item.name }}</td>
+                <td class="capitalize">{{ item.desc }}</td>
+                <td>{{ item.unitPrice }}</td>
+                <td >{{ item.quantity }}</td>
+                <td>{{ item.totalPrice }}</td>
+
+                <td class="actions">
+                    <a routerLink="/admin/edit-invoice">
+                        <img src="../../assets/img/edit-regular.svg" alt="" title="Edit">
+                    </a>
+                    <a (click)="this.delete_invoice.open_modal(content)">
+                        <img src="../../assets/img/trash-alt-regular.svg" alt="" title="Delete">
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="prices">
+        <div class="row">
+            <div class="col">
+                <h2>subtotal</h2>
+            </div>
+            <div class="col">
+                <p>0</p>
+            </div>
+        </div>
+        <div class="row" id="tax-row">
+            <div class="col">
+                <h2>Taxes (VAT 14%)</h2>
+            </div>
+            <div class="col">
+                <p>0</p>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="prices">
+        <div class="row">
+            <div class="col">
+                <h2>Total Amount</h2>
+            </div>
+            <div class="col">
+                <p>0</p>
+            </div>
+        </div>
+    </div>
+</div>
