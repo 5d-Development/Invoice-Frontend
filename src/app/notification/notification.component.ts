@@ -2,6 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { LoginService } from '../login/services/login.service';
 
 @Component({
   selector: 'app-notification',
@@ -13,8 +14,8 @@ export class NotificationComponent implements OnInit {
   currentLang:string;
 
   constructor(private router: Router,
-    private activatedRoute: ActivatedRoute,
     public translate:TranslateService ,
+    private loginService: LoginService,
     @Inject(DOCUMENT) private document: Document)
     {
       this.currentLang=localStorage.getItem('langi18n') || 'en';
@@ -24,7 +25,8 @@ export class NotificationComponent implements OnInit {
   ngOnInit(): void {
   }
   logout() {
-    this.router.navigate(['/'], { relativeTo: this.activatedRoute });
+    this.loginService.userLogOut();
+    // this.router.navigate(['/'], { relativeTo: this.activatedRoute });
   }
   currentLangChange(lang:string) {
     localStorage.setItem('langi18n', lang);
