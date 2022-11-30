@@ -26,7 +26,7 @@ export class LoginService {
   }
 
   userLogin(userLoginInfo:UserLoginInfo){
-  let userEmail=userLoginInfo.Email;
+  //let userEmail=userLoginInfo.Email;
   this.authService.fetchLoginIn(userLoginInfo)
   .subscribe(responseData => {
       // console.log(responseData)
