@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { ActiveTabService } from '../shared/active-tab.service';
 import { PageEvent } from '@angular/material/paginator';
 import { TranslateService } from '@ngx-translate/core';
+import { DeleteInvoiceComponent } from './delete-invoice/delete-invoice.component';
 
 @Component({
   selector: 'app-invoices',
@@ -23,7 +24,8 @@ export class InvoicesComponent implements OnInit {
   activeTitleSubscribtion: Subscription = new Subscription;
   constructor(private route: ActivatedRoute,
     private activeTabService: ActiveTabService,
-    public translate: TranslateService) {
+    public translate: TranslateService,
+    private delete_invoice: DeleteInvoiceComponent) {
 
     for (let i = 1; i <= 25; i++) {
       // this.collection.push(`${i * 13001}`);

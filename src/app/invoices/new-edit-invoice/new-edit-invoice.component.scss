@@ -2,7 +2,7 @@
 @import '../../../assets/css/media-query';
 
 #new-edit-invoice {
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.5rem 0;
     position: relative;
 
     #top-bar {
@@ -183,7 +183,7 @@
                 padding-right: 2rem;
             }
 
-            #client-dropdown {
+            .client-dropdown {
                 display: flex;
                 align-items: baseline;
 
