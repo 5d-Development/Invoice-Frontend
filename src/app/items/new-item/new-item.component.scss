@@ -66,6 +66,20 @@
                 }
             }
 
+            textarea {
+                border-radius: 1rem;
+                padding: 0.5rem 1rem;
+                border-color: $border-grey;
+                font-size: 1rem;
+                width: 100%;
+
+                &:focus {
+                    box-shadow: none;
+                    outline: none;
+                    border-color: $main-purple;
+                }
+            }
+
             // Placeholder Color
             ::placeholder {
                 color: $border-grey;

@@ -25,7 +25,7 @@ export class NewItemComponent implements OnInit {
     });
   }
 
-  formSubmit() {
+  new_item() {
     console.log('Item added successfully');
   }
 

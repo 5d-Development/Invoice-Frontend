@@ -5,43 +5,58 @@
             {{"Add new invoice" | translate}}
         </a>
         <div id="selections">
-            <h3 class="">Show: </h3>
-            <!-- Date Dropdown -->
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    {{ date_value }}
-                </button>
+            <div class="row w-100">
+                <div class="col-lg-6 d-flex flex-column flex-sm-row align-items-baseline my-2 p-0">
+                    <h3 class="">Show: </h3>
+                    <!-- Date Dropdown -->
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            {{ date_value }}
+                        </button>
 
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" #refEl1 (click)='change_date_value(refEl1)'>all</a>
-                    </li>
-                    <li><a class="dropdown-item" #refEl2 (click)='change_date_value(refEl2)'>This Month</a>
-                    </li>
-                    <li><a class="dropdown-item" #refEl3 (click)='change_date_value(refEl3)'>Last Month</a>
-                    </li>
-                    <li><a class="dropdown-item" #refEl4 (click)='change_date_value(refEl4)'>from (date)</a>
-                    </li>
-                    <li><a class="dropdown-item" #refEl5 (click)='change_date_value(refEl5)'>to (date)</a>
-                    </li>
-                </ul>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" #refEl1 (click)='change_date_value(refEl1)'>all</a>
+                            </li>
+                            <li><a class="dropdown-item" #refEl2 (click)='change_date_value(refEl2)'>This Month</a>
+                            </li>
+                            <li><a class="dropdown-item" #refEl3 (click)='change_date_value(refEl3)'>Last Month</a>
+                            </li>
+                            <li><a class="dropdown-item" #refEl4 (click)='change_date_value(refEl4)'>from (date)</a>
+                            </li>
+                            <li><a class="dropdown-item" #refEl5 (click)='change_date_value(refEl5)'>to (date)</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Status Dropdown -->
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            {{ status_value }}
+                        </button>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" #refEl5 (click)='change_status_value(refEl5)'>all</a></li>
+                            <li><a class="dropdown-item" #refEl6 (click)='change_status_value(refEl6)'>due</a></li>
+                            <li><a class="dropdown-item" #refEl7 (click)='change_status_value(refEl7)'>overdue</a></li>
+                            <li><a class="dropdown-item" #refEl8 (click)='change_status_value(refEl8)'>archived</a></li>
+                            <li><a class="dropdown-item" #refEl8 (click)='change_status_value(refEl8)'>draft</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-block d-lg-flex p-0 my-2">
+                    <div class="search ms-auto">
+                        <input type="text" name="search-input" id="search-input" placeholder="Search...">
+                        <button>
+                            <img src="../../assets/img/search-solid.svg" alt="">
+                        </button>
+                    </div>
+                </div>
             </div>
 
-            <!-- Status Dropdown -->
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    {{ status_value }}
-                </button>
 
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" #refEl5 (click)='change_status_value(refEl5)'>all</a></li>
-                    <li><a class="dropdown-item" #refEl6 (click)='change_status_value(refEl6)'>due</a></li>
-                    <li><a class="dropdown-item" #refEl7 (click)='change_status_value(refEl7)'>overdue</a></li>
-                    <li><a class="dropdown-item" #refEl8 (click)='change_status_value(refEl8)'>archived</a></li>
-                    <li><a class="dropdown-item" #refEl8 (click)='change_status_value(refEl8)'>draft</a></li>
-                </ul>
-            </div>
+
         </div>
 
         <table class="table table-bordered text-center">

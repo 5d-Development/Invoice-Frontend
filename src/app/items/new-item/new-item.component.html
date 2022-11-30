@@ -14,7 +14,7 @@
         <!-- Form -->
         <div id="new-item-form">
             <form method="GET" [formGroup]="NewItemForm"
-                (ngSubmit)="formSubmit(); modal.close(); open_modal(success);">
+                (ngSubmit)="new_item(); modal.close(); open_modal(success);">
 
                 <div class="row mb-3">
                     <label for="new-item-name" class="col-lg-2 col-form-label">Name</label>
