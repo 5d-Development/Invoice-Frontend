@@ -4,6 +4,8 @@ import { BehaviorSubject, Subject } from 'rxjs';
 import { AuthenticationService } from 'src/app/shared/authentication.service';
 import { UserLoginInfo } from '../user-login.model';
 import { LoginResponseModel } from './login-response.model';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +15,7 @@ export class LoginService {
   loginErrorMessage = new BehaviorSubject<string>("");
   loginSucessMessage = new BehaviorSubject<string>("");
   userLoginResponse = new BehaviorSubject<LoginResponseModel |null>(null);
+  jwtHelper = new JwtHelperService();
   flagError = new Subject<boolean>();
   flagSucess = new Subject<boolean>();
 
@@ -27,14 +30,15 @@ export class LoginService {
   this.authService.fetchLoginIn(userLoginInfo)
   .subscribe(responseData => {
       // console.log(responseData)
+      const decodedUser = this.jwtHelper.decodeToken(responseData.Token);
       const expireTokenDate = new Date(responseData.Expiration)
       const userLoginResponses = new LoginResponseModel(responseData.Token,expireTokenDate);
       this.userLoginResponse.next(userLoginResponses);
       localStorage.setItem('userLogin', JSON.stringify(userLoginResponses))
       this.flagSucess.next(true);
       this.flagError.next(false);
-      this.loginSucessMessage.next(userEmail);
-      this.router.navigate(['admin'])
+      this.loginSucessMessage.next(decodedUser.sub);
+      setTimeout(() => {this.router.navigate(['admin'])},1200)
     },
     errorMessage =>{
       console.log(errorMessage)
