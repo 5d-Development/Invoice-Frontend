@@ -52,6 +52,11 @@ import { AuthInterceptorService } from './shared/auth-interceptor.service';
 import { NewTeamMemberComponent } from './team/new-team-member/new-team-member.component';
 import { DeleteTeamMemberComponent } from './team/delete-team-member/delete-team-member.component';
 import { EditTeamMemberComponent } from './team/edit-team-member/edit-team-member.component';
+import { PreviewInvoiceComponent } from './invoices/preview-invoice/preview-invoice.component';
+import { DeleteInvoiceComponent } from './invoices/delete-invoice/delete-invoice.component';
+import { ItemsComponent } from './items/items.component';
+import { NewItemComponent } from './items/new-item/new-item.component';
+import { DeleteItemComponent } from './items/delete-item/delete-item.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +90,11 @@ import { EditTeamMemberComponent } from './team/edit-team-member/edit-team-membe
     NewTeamMemberComponent,
     DeleteTeamMemberComponent,
     EditTeamMemberComponent,
+    PreviewInvoiceComponent,
+    DeleteInvoiceComponent,
+    ItemsComponent,
+    NewItemComponent,
+    DeleteItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -125,8 +135,9 @@ import { EditTeamMemberComponent } from './team/edit-team-member/edit-team-membe
       provide:HTTP_INTERCEPTORS,
       useClass:AuthInterceptorService,
       multi:true
-    }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+    },                      
+    DeleteInvoiceComponent,
+    NewItemComponent,
   ],
   bootstrap: [AppComponent]
 })
