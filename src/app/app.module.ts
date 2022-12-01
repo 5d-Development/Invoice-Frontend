@@ -57,6 +57,10 @@ import { DeleteInvoiceComponent } from './invoices/delete-invoice/delete-invoice
 import { ItemsComponent } from './items/items.component';
 import { NewItemComponent } from './items/new-item/new-item.component';
 import { DeleteItemComponent } from './items/delete-item/delete-item.component';
+import { NewExpenseComponent } from './expenses/new-expense/new-expense.component';
+import { EditExpenseComponent } from './expenses/edit-expense/edit-expense.component';
+import { DeleteExpenseComponent } from './expenses/delete-expense/delete-expense.component';
+import { PreviewExpenseComponent } from './expenses/preview-expense/preview-expense.component';
 
 @NgModule({
   declarations: [
@@ -95,6 +99,10 @@ import { DeleteItemComponent } from './items/delete-item/delete-item.component';
     ItemsComponent,
     NewItemComponent,
     DeleteItemComponent,
+    NewExpenseComponent,
+    EditExpenseComponent,
+    DeleteExpenseComponent,
+    PreviewExpenseComponent,
   ],
   imports: [
     BrowserModule,
@@ -138,6 +146,7 @@ import { DeleteItemComponent } from './items/delete-item/delete-item.component';
     },                      
     DeleteInvoiceComponent,
     NewItemComponent,
+    NewExpenseComponent
   ],
   bootstrap: [AppComponent]
 })

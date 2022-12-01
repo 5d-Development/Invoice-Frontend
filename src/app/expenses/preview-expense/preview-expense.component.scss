@@ -1,0 +1,132 @@
+@import '../../../assets/css/variables';
+@import '../../../assets/css/media-query';
+
+#preview-expense {
+    a {
+        margin: auto 0.2rem;
+        cursor: pointer;
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+::ng-deep .modal {
+    .modal-content {
+        padding: 2rem 2rem;
+    }
+
+    .modal-header {
+        border: none;
+
+        .modal-title {
+            text-transform: capitalize;
+            color: $main-purple;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        button {
+            background: transparent url("../../../assets/img/x.svg") center/1em auto no-repeat;
+        }
+    }
+
+    .modal-body {
+        form {
+            text-align: start;
+
+            label {
+                color: $main-purple;
+                text-transform: capitalize;
+                font-weight: 900;
+                font-size: 1rem;
+            }
+
+            .calendar {
+                display: flex;
+
+                .input-group {
+                    width: 50%;
+                }
+
+                input {
+                    border-color: $border-grey;
+                    border-top-left-radius: $button-border-radius;
+                    border-bottom-left-radius: $button-border-radius;
+                    border-top-right-radius: 0;
+                    border-bottom-right-radius: 0;
+
+                    &:focus {
+                        box-shadow: none;
+                        outline: none;
+                        border-color: $main-purple;
+                    }
+                }
+
+                button {
+                    border-color: $border-grey;
+                    border-top-right-radius: $button-border-radius;
+                    border-bottom-right-radius: $button-border-radius;
+
+                    &:hover {
+                        background-color: $text-grey;
+                    }
+
+                    img {
+                        width: 15px;
+                    }
+                }
+            }
+
+            input {
+                border-radius: $button-border-radius;
+                padding-left: 1rem;
+
+                &:active,
+                &:focus {
+                    box-shadow: none;
+                    outline: 0;
+                    border-color: $main-purple;
+                }
+            }
+
+            textarea {
+                border-radius: 1rem;
+                padding: 0.5rem 1rem;
+                border-color: $border-grey;
+                font-size: 1rem;
+                width: 100%;
+
+                &:focus {
+                    box-shadow: none;
+                    outline: none;
+                    border-color: $main-purple;
+                }
+            }
+        }
+    }
+
+    h4 {
+        text-transform: capitalize;
+        color: $main-purple;
+        font-size: 1.5rem;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 25px;
+            height: 25px;
+            margin: auto 1rem;
+        }
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: $text-black;
+        font-weight: 500;
+    }
+}

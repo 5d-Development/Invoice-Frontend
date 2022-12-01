@@ -1,0 +1,15 @@
+<div id="preview-expense">
+    <a (click)="open_modal(content)">
+        <img src="../../assets/img/eye-regular.svg" alt="" title="Preview" style="width: 23px; height: 23px;">
+    </a>
+</div>
+
+<ng-template #content let-modal id="new-expense-modal">
+    <div class="modal-header">
+        <h4 class="modal-title">new expense</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        
+    </div>
+</ng-template>

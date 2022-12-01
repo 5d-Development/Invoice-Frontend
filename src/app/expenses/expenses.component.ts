@@ -9,11 +9,24 @@ import { ActiveTabService } from '../shared/active-tab.service';
   styleUrls: ['./expenses.component.scss']
 })
 export class ExpensesComponent implements OnInit ,OnDestroy{
-  // public title: string = 'Expenses';
   activeTab: string='';
   activeIcon: string = '../../assets/img/expenses.svg';
+  date_value: string = 'Sort By';
+  type_value: string = 'Type';
+  page_number: number = 1;
+  itemPerPage: number = 10;
+  expenses: object[] = [{date: 'Dec 01, 2022 11:44 AM', client: 'client name', type: 'upgrade', desc: "abc 123", currency: 'EGP', total: 123456}];
   activeTitleSubscribtion: Subscription = new Subscription;
+
   constructor(private route:ActivatedRoute ,  private activeTabService:ActiveTabService) { }
+
+  change_date_value(el: HTMLElement) {
+    this.date_value = el.innerHTML;
+  }
+
+  change_type_value(el: HTMLElement) {
+    this.type_value = el.innerHTML;
+  }
 
 
   ngOnInit(): void {
