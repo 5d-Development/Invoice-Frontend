@@ -61,6 +61,10 @@ import { NewExpenseComponent } from './expenses/new-expense/new-expense.componen
 import { EditExpenseComponent } from './expenses/edit-expense/edit-expense.component';
 import { DeleteExpenseComponent } from './expenses/delete-expense/delete-expense.component';
 import { PreviewExpenseComponent } from './expenses/preview-expense/preview-expense.component';
+import { NewClientComponent } from './clients/new-client/new-client.component';
+import { EditClientComponent } from './clients/edit-client/edit-client.component';
+import { DeleteClientComponent } from './clients/delete-client/delete-client.component';
+import { PreviewClientComponent } from './clients/preview-client/preview-client.component';
 
 @NgModule({
   declarations: [
@@ -103,6 +107,10 @@ import { PreviewExpenseComponent } from './expenses/preview-expense/preview-expe
     EditExpenseComponent,
     DeleteExpenseComponent,
     PreviewExpenseComponent,
+    NewClientComponent,
+    EditClientComponent,
+    DeleteClientComponent,
+    PreviewClientComponent,
   ],
   imports: [
     BrowserModule,

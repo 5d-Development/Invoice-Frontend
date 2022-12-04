@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-preview-expense',
-  templateUrl: './preview-expense.component.html',
-  styleUrls: ['./preview-expense.component.scss']
+  selector: 'app-preview-client',
+  templateUrl: './preview-client.component.html',
+  styleUrls: ['./preview-client.component.scss']
 })
-export class PreviewExpenseComponent implements OnInit {
+export class PreviewClientComponent implements OnInit {
 
+  website: string = 'www.google.com'
   constructor(private modalService: NgbModal) { }
 
   open_modal(content: any) {
@@ -16,7 +17,7 @@ export class PreviewExpenseComponent implements OnInit {
       size: 'xl',
     });
   }
-  
   ngOnInit(): void {
   }
+
 }

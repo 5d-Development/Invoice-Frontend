@@ -1,12 +1,12 @@
 @import '../../../assets/css/variables';
 @import '../../../assets/css/media-query';
 
-#add-new-team-member {
+#new-client {
     border-top: solid 2px $border-grey;
     margin-top: 2rem;
     padding: 1rem 1.5rem;
 
-    #new-team-member-btn {
+    #new-client-btn {
         display: flex;
         justify-content: space-between;
         color: #fff;
@@ -14,7 +14,7 @@
         font-weight: 600;
         padding-right: 2.5rem;
         padding-left: 2.5rem;
-        // margin-top: 1rem;
+        // margin-bottom: 2rem;
         width: fit-content;
         border-radius: $button-border-radius;
         border-color: $main-purple;
@@ -89,7 +89,7 @@
             .dropdown {
                 button {
                     background-color: transparent;
-                    color: $text-grey;
+                    color: $text-black;
                     border: solid 1px $border-grey;
                     border-radius: $dropdown-border-radius;
                     position: relative;
