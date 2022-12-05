@@ -1,7 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Renderer2, Inject } from '@angular/core';
-// import { DOCUMENT } from '@angular/platform-browser';
+import { CurrencyApiService } from 'src/app/shared/currency-api.service';
 
 @Component({
   selector: 'app-currency-summary',
@@ -10,20 +10,24 @@ import { Renderer2, Inject } from '@angular/core';
 })
 export class CurrencySummaryComponent implements OnInit {
 
-  @ViewChild('currency_rate') el: ElementRef;
-  constructor(private renderer2: Renderer2, @Inject(DOCUMENT) private _document: Document) { }
+  data_results: any;
+  currency_obj: { [key: string]: number } = { EGP: 0, EUR: 0, GBP: 0, USD: 0 };
+  constructor(private currency_api: CurrencyApiService) { }
 
   ngOnInit(): void {
-  }
+    this.currency_api.getCurrency_USD().subscribe((data: any) => {
+      this.data_results = data['result'];
+      this.currency_obj['EGP'] = this.data_results['EGP'];
+    });
 
-  ngAfterViewInit() {
-    const s = this.renderer2.createElement('script');
-    s.type = 'text/javascript';
-    s.src = 'https://www.exchangeratewidget.com/converter.php?l=en&f=EGP&t=USD,EUR,GBP,JPY,CNY,RUB,&a=1&d=F0F0F0&n=FFFFFF&o=000000&v=7';
-    s.text = ``;
-    // this.renderer2.appendChild(this.el.nativeElement, s);
-    // console.log(this.el.nativeElement);
-    // this.el.nativeElement.appendChild(this.renderer2)
-  }
+    this.currency_api.getCurrency_EUR().subscribe((data: any) => {
+      this.data_results = data['result'];
+      this.currency_obj['EUR'] = this.data_results['EGP'];
+    });
 
+    this.currency_api.getCurrency_GBP().subscribe((data: any) => {
+      this.data_results = data['result'];
+      this.currency_obj['GBP'] = this.data_results['EGP'];
+    });
+  }
 }
