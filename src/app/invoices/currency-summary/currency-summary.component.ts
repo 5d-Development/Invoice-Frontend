@@ -29,28 +29,22 @@ export class CurrencySummaryComponent implements OnInit {
     fetch("https://api.apilayer.com/exchangerates_data/convert?to=EGP&from=USD&amount=1", this.requestOptions)
       .then(response => response.text())
       .then(result => {
-        
-        console.log(JSON.parse(result)['result']);
         this.currency_obj['USD'] = JSON.parse(result)['result'];
       })
       .catch(error => console.log('error', error));
 
-      // EUR
-      fetch("https://api.apilayer.com/exchangerates_data/convert?to=EGP&from=EUR&amount=1", this.requestOptions)
+    // EUR
+    fetch("https://api.apilayer.com/exchangerates_data/convert?to=EGP&from=EUR&amount=1", this.requestOptions)
       .then(response => response.text())
       .then(result => {
-        
-        console.log(JSON.parse(result)['result']);
         this.currency_obj['EUR'] = JSON.parse(result)['result'];
       })
       .catch(error => console.log('error', error));
 
-      // GBP
-      fetch("https://api.apilayer.com/exchangerates_data/convert?to=EGP&from=GBP&amount=1", this.requestOptions)
+    // GBP
+    fetch("https://api.apilayer.com/exchangerates_data/convert?to=EGP&from=GBP&amount=1", this.requestOptions)
       .then(response => response.text())
       .then(result => {
-        
-        console.log(JSON.parse(result)['result']);
         this.currency_obj['GBP'] = JSON.parse(result)['result'];
       })
       .catch(error => console.log('error', error));
