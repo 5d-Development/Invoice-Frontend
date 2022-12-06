@@ -1,7 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Renderer2, Inject } from '@angular/core';
-import { CurrencyApiService } from 'src/app/shared/currency-api.service';
 
 @Component({
   selector: 'app-currency-summary',
@@ -12,22 +11,52 @@ export class CurrencySummaryComponent implements OnInit {
 
   data_results: any;
   currency_obj: { [key: string]: number } = { EGP: 0, EUR: 0, GBP: 0, USD: 0 };
-  constructor(private currency_api: CurrencyApiService) { }
+  API_KEY = 'klCq8zwoNb5JQpORARgTsGX27sm9n9yj';
+  myHeaders = new Headers();
+  requestOptions = {};
+
+  constructor() { }
+
+  public getCurrency() {
+    this.myHeaders.append('apikey', this.API_KEY);
+    this.requestOptions = {
+      method: 'GET',
+      redirect: 'follow',
+      headers: this.myHeaders
+    };
+
+    // USD
+    fetch("https://api.apilayer.com/exchangerates_data/convert?to=EGP&from=USD&amount=1", this.requestOptions)
+      .then(response => response.text())
+      .then(result => {
+        
+        console.log(JSON.parse(result)['result']);
+        this.currency_obj['USD'] = JSON.parse(result)['result'];
+      })
+      .catch(error => console.log('error', error));
+
+      // EUR
+      fetch("https://api.apilayer.com/exchangerates_data/convert?to=EGP&from=EUR&amount=1", this.requestOptions)
+      .then(response => response.text())
+      .then(result => {
+        
+        console.log(JSON.parse(result)['result']);
+        this.currency_obj['EUR'] = JSON.parse(result)['result'];
+      })
+      .catch(error => console.log('error', error));
+
+      // GBP
+      fetch("https://api.apilayer.com/exchangerates_data/convert?to=EGP&from=GBP&amount=1", this.requestOptions)
+      .then(response => response.text())
+      .then(result => {
+        
+        console.log(JSON.parse(result)['result']);
+        this.currency_obj['GBP'] = JSON.parse(result)['result'];
+      })
+      .catch(error => console.log('error', error));
+  }
 
   ngOnInit(): void {
-    this.currency_api.getCurrency_USD().subscribe((data: any) => {
-      this.data_results = data['result'];
-      this.currency_obj['EGP'] = this.data_results['EGP'];
-    });
-
-    this.currency_api.getCurrency_EUR().subscribe((data: any) => {
-      this.data_results = data['result'];
-      this.currency_obj['EUR'] = this.data_results['EGP'];
-    });
-
-    this.currency_api.getCurrency_GBP().subscribe((data: any) => {
-      this.data_results = data['result'];
-      this.currency_obj['GBP'] = this.data_results['EGP'];
-    });
+    // this.getCurrency();
   }
 }
