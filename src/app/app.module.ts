@@ -65,6 +65,8 @@ import { NewClientComponent } from './clients/new-client/new-client.component';
 import { EditClientComponent } from './clients/edit-client/edit-client.component';
 import { DeleteClientComponent } from './clients/delete-client/delete-client.component';
 import { PreviewClientComponent } from './clients/preview-client/preview-client.component';
+import { BusinessProfileComponent } from './settings/business-profile/business-profile.component';
+import { CustomizationComponent } from './settings/customization/customization.component';
 
 @NgModule({
   declarations: [
@@ -111,6 +113,8 @@ import { PreviewClientComponent } from './clients/preview-client/preview-client.
     EditClientComponent,
     DeleteClientComponent,
     PreviewClientComponent,
+    BusinessProfileComponent,
+    CustomizationComponent,
   ],
   imports: [
     BrowserModule,

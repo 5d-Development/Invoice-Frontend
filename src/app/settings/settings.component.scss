@@ -1,0 +1,27 @@
+@import '../../assets/css/variables';
+@import '../../assets/css/media-query';
+
+#settings {
+    padding: 1rem 1.5rem;
+    margin-top: 2rem;
+
+    ul {
+        li {
+            button {
+                text-transform: capitalize;
+                color: $border-grey;
+                font-size: 1.1rem;
+                font-weight: 600;
+                border-radius: 0;
+
+                &.active {
+                    color: $main-purple;
+                }
+            }
+        }
+    }
+    
+    .btns {
+        text-align: end;
+    }
+}
