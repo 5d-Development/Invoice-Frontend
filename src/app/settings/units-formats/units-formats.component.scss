@@ -8,7 +8,7 @@
     @include media-breakpoint-down(lg) {
         height: auto;
     }
-
+    
     label {
         color: $main-purple;
         text-transform: capitalize;
@@ -67,32 +67,5 @@
                 }
             }
         }
-    }
-
-    // input
-    input {
-        border-radius: $button-border-radius;
-        padding-left: 1rem;
-
-        &:active,
-        &:focus {
-            box-shadow: none;
-            outline: 0;
-            border-color: $main-purple;
-        }
-    }
-
-    // Placeholder Color
-    ::placeholder {
-        color: $border-grey;
-        opacity: 1;
-    }
-
-    :-ms-input-placeholder {
-        color: $border-grey;
-    }
-
-    ::-ms-input-placeholder {
-        color: $border-grey;
     }
 }

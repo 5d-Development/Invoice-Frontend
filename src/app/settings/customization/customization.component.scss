@@ -3,6 +3,11 @@
 
 .inner-content {
     padding: 1rem 0;
+    height: 550px;
+
+    @include media-breakpoint-down(lg) {
+        height: auto;
+    }
 
     label {
         color: $main-purple;

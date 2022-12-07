@@ -20,8 +20,37 @@
             }
         }
     }
-    
+
     .btns {
         text-align: end;
+        display: flex;
+        justify-content: flex-end;
+
+        @include media-breakpoint-down(lg) {
+            margin-top: 1rem;
+        }
+
+        button {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            padding-right: 2.5rem;
+            padding-left: 2.5rem;
+            width: fit-content;
+            text-transform: capitalize;
+
+            &#save {
+                background-color: $main-purple;
+                border-radius: $button-border-radius;
+                border-color: $main-purple;
+                color: #fff;
+            }
+
+            &#cancel {
+                background-color: #fff;
+                color: $main-purple;
+                border: none;
+            }
+        }
     }
 }

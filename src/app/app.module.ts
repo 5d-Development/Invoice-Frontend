@@ -67,6 +67,12 @@ import { DeleteClientComponent } from './clients/delete-client/delete-client.com
 import { PreviewClientComponent } from './clients/preview-client/preview-client.component';
 import { BusinessProfileComponent } from './settings/business-profile/business-profile.component';
 import { CustomizationComponent } from './settings/customization/customization.component';
+import { GeneralSettingsComponent } from './settings/general-settings/general-settings.component';
+import { UnitsFormatsComponent } from './settings/units-formats/units-formats.component';
+import { TaxesComponent } from './settings/taxes/taxes.component';
+import { EditTaxComponent } from './settings/taxes/edit-tax/edit-tax.component';
+import { DeleteTaxComponent } from './settings/taxes/delete-tax/delete-tax.component';
+import { NewTaxComponent } from './settings/taxes/new-tax/new-tax.component';
 
 @NgModule({
   declarations: [
@@ -115,6 +121,12 @@ import { CustomizationComponent } from './settings/customization/customization.c
     PreviewClientComponent,
     BusinessProfileComponent,
     CustomizationComponent,
+    GeneralSettingsComponent,
+    UnitsFormatsComponent,
+    TaxesComponent,
+    EditTaxComponent,
+    DeleteTaxComponent,
+    NewTaxComponent,
   ],
   imports: [
     BrowserModule,

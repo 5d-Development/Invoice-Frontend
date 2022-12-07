@@ -35,13 +35,15 @@
 
         <div class="tab-pane fade" id="general-settings-tab-pane" role="tabpanel" aria-labelledby="general-settings-tab"
             tabindex="0">
-
+            <app-general-settings></app-general-settings>
         </div>
 
-        <div class="tab-pane fade" id="units-tab-pane" role="tabpanel" aria-labelledby="units-tab" tabindex="0">.3131333
+        <div class="tab-pane fade" id="units-tab-pane" role="tabpanel" aria-labelledby="units-tab" tabindex="0">
+            <app-units-formats></app-units-formats>
         </div>
 
-        <div class="tab-pane fade" id="taxes-tab-pane" role="tabpanel" aria-labelledby="taxes-tab" tabindex="0">4444
+        <div class="tab-pane fade" id="taxes-tab-pane" role="tabpanel" aria-labelledby="taxes-tab" tabindex="0">
+            <app-taxes></app-taxes>
         </div>
 
         <div class="tab-pane fade" id="customization-tab-pane" role="tabpanel" aria-labelledby="customization-tab"
@@ -51,7 +53,8 @@
     </div>
 
     <div class="btns">
-        <button class="btn btn-primary">save</button>
+        <button class="btn" id="cancel">cancel</button>
+        <button class="btn" id="save">save changes</button>
     </div>
 
 
