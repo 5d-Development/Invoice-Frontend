@@ -16,6 +16,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 import { LoaderComponent } from './loader/loader.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -139,6 +141,7 @@ import { NewTaxComponent } from './settings/taxes/new-tax/new-tax.component';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSnackBarModule,
     ReactiveFormsModule,
     SweetAlert2Module.forRoot(),
     GoogleChartsModule,
@@ -146,10 +149,10 @@ import { NewTaxComponent } from './settings/taxes/new-tax/new-tax.component';
     HttpClientModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
-      loader:{
-        provide:TranslateLoader,
-        useFactory:HttpLoaderFactory,
-        deps:[HttpClient]
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
       }
     }),
     NgbModule,
@@ -164,10 +167,10 @@ import { NewTaxComponent } from './settings/taxes/new-tax/new-tax.component';
     SettingsComponent,
     ActivityLogComponent,
     {
-      provide:HTTP_INTERCEPTORS,
-      useClass:AuthInterceptorService,
-      multi:true
-    },                      
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    },
     DeleteInvoiceComponent,
     NewItemComponent,
     NewExpenseComponent
@@ -177,7 +180,7 @@ import { NewTaxComponent } from './settings/taxes/new-tax/new-tax.component';
 export class AppModule { }
 
 // Method for Implemnt Translation
-export function HttpLoaderFactory (http:HttpClient){
+export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 
 }
