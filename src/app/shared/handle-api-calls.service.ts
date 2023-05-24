@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, Subject, throwError } from 'rxjs';
-import { API_URL_BASE } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 import { UserChangePassword } from '../login/change-password/change-password.model';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class HandleApiCallsService {
   
   // Fetching Change Password Calling with API
   fetchUserChangePassword(UserChangePassword:UserChangePassword){
-    return this.httpRequest.post(API_URL_BASE+this.changePasswordEndpoint,UserChangePassword)
+    return this.httpRequest.post(environment.API_URL_BASE+this.changePasswordEndpoint,UserChangePassword)
     .pipe(catchError(this.handleError))
   }
 

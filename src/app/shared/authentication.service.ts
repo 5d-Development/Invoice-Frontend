@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, tap, throwError } from 'rxjs';
-import { API_URL_BASE } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 import { UserLoginInfo } from '../login/user-login.model';
 
 export interface AuthResponseData{
@@ -23,7 +23,7 @@ export class AuthenticationService {
 
   // Fetching Login Calling with API
   fetchLoginIn(userLoginInfo:UserLoginInfo){
-      return this.httpRequest.post<AuthResponseData>(API_URL_BASE +this.loginEndpoint,userLoginInfo)
+      return this.httpRequest.post<AuthResponseData>(environment.API_URL_BASE +this.loginEndpoint,userLoginInfo)
       .pipe(catchError(this.handleError))
   }
 
